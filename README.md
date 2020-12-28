@@ -1,5 +1,5 @@
 # gohugo.io-mirror
-The gohugo.io website mirror file  update in 2020-12-10
+The gohugo.io website mirror file  update in 2020-12-28
 
 # Use
 
