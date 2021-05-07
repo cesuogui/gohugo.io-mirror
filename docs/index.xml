@@ -1,4 +1,401 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo – The world’s fastest framework for building websites</title><link>https://gohugo.io/</link><description>Recent Hugo news from gohugo.io</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate><image><url>https://gohugo.io/img/hugo.png</url><title>GoHugo.io</title><link>https://gohugo.io/</link></image><atom:link href="https://gohugo.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Showcase: Godot Tutorials</title><link>https://gohugo.io/showcase/godot-tutorials/</link><pubDate>Thu, 07 Jan 2021 00:00:00 +0000</pubDate><guid>https://gohugo.io/showcase/godot-tutorials/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo – The world’s fastest framework for building websites</title><link>https://gohugo.io/</link><description>Recent Hugo news from gohugo.io</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate><image><url>https://gohugo.io/img/hugo.png</url><title>GoHugo.io</title><link>https://gohugo.io/</link></image><atom:link href="https://gohugo.io/index.xml" rel="self" type="application/rss+xml"/><item><title>News: Hugo 0.83.1: One Bug Fix</title><link>https://gohugo.io/news/0.83.1-relnotes/</link><pubDate>Sun, 02 May 2021 00:00:00 +0000</pubDate><guid>https://gohugo.io/news/0.83.1-relnotes/</guid><description>
+&lt;p>This is a bug-fix release with one important fix.&lt;/p>
+&lt;ul>
+&lt;li>langs/i18n: Fix warning regression in i18n &lt;a href="https://github.com/gohugoio/hugo/commit/ececd1b122c741567a80acd8d60ccd6356fa5323">ececd1b1&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8492">#8492&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>News: Hugo 0.83: WebP Support!</title><link>https://gohugo.io/news/0.83.0-relnotes/</link><pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate><guid>https://gohugo.io/news/0.83.0-relnotes/</guid><description>
+&lt;img src="https://gohugo.io/news/0.83.0-relnotes/featured_hu95eea831049f54a9a3609e4be0c231b7_82972_640x0_resize_catmullrom_2.png" width="640" height="320"/>
+&lt;p>&lt;strong>Note:&lt;/strong> If you use i18n, there is an unfortunate regression bug in this release (see &lt;a href="https://github.com/gohugoio/hugo/issues/8492">issue&lt;/a>). A patch release coming Sunday.&lt;/p>
+&lt;p>Hugo &lt;code>0.83&lt;/code> finally brings &lt;a href="https://gohugo.io/content-management/image-processing/">WebP&lt;/a> image processing support. Note that you need the &lt;a href="https://gohugo.io/troubleshooting/faq/#i-get-tocss--this-feature-is-not-available-in-your-current-hugo-version">extended version&lt;/a> of Hugo to encode to WebP. If you want to target all Hugo versions, you may use a construct such as this:&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-go-html-template" data-lang="go-html-template">&lt;span class="cp">{{&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nx">$images&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">:=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nx">slice&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="cp">}}&lt;/span>
+&lt;span class="cp">{{&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nx">$images&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nx">$images&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nx">append&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="nx">$img&lt;/span>&lt;span class="na">.Resize&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;300x&amp;#34;&lt;/span>&lt;span class="o">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="cp">}}&lt;/span>
+&lt;span class="cp">{{&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nx">hugo&lt;/span>&lt;span class="na">.IsExtended&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="cp">}}&lt;/span>
+&lt;span class="cp">{{&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nx">$images&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nx">$images&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nx">append&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="nx">$img&lt;/span>&lt;span class="na">.Resize&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;300x webp&amp;#34;&lt;/span>&lt;span class="o">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="cp">}}&lt;/span>
+&lt;span class="cp">{{&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">end&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="cp">}}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Also worth highlighting:&lt;/p>
+&lt;ul>
+&lt;li>Some important language/i18n fixes (thanks to &lt;a href="https://github.com/jmooring">@jmooring&lt;/a> for helping out with these):
+&lt;ul>
+&lt;li>Fix multiple unknown language codes &lt;a href="https://github.com/gohugoio/hugo/commit/7eb80a9e6fcb6d31711effa20310cfefb7b23c1b">7eb80a9e&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/7838">#7838&lt;/a>&lt;/li>
+&lt;li>Improve plural handling of floats &lt;a href="https://github.com/gohugoio/hugo/commit/eebde0c2ac4964e91d26d8b0cf0ac43afcfd207f">eebde0c2&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8464">#8464&lt;/a>&lt;/li>
+&lt;li>Revise the plural implementation &lt;a href="https://github.com/gohugoio/hugo/commit/537c905ec103dc5adaf8a1b2ccdef5da7cc660fd">537c905e&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8454">#8454&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/7822">#7822&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>You can now use slice syntax in the sections permalinks config&lt;a href="https://github.com/gohugoio/hugo/commit/2dc222cec4460595af8569165d1c498bb45aac84">2dc222ce&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8363">#8363&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p>This release represents &lt;strong>61 contributions by 9 contributors&lt;/strong> to the main Hugo code base.&lt;a href="https://github.com/bep">@bep&lt;/a> leads the Hugo development with a significant amount of contributions, but also a big shoutout to &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>, &lt;a href="https://github.com/jmooring">@jmooring&lt;/a>, and &lt;a href="https://github.com/anthonyfok">@anthonyfok&lt;/a> for their ongoing contributions.
+And a big thanks to &lt;a href="https://github.com/digitalcraftsman">@digitalcraftsman&lt;/a> for his relentless work on keeping the themes site in pristine condition.&lt;/p>
+&lt;p>Many have also been busy writing and fixing the documentation in &lt;a href="https://github.com/gohugoio/hugoDocs">hugoDocs&lt;/a>,
+which has received &lt;strong>10 contributions by 5 contributors&lt;/strong>. A special thanks to &lt;a href="https://github.com/lupsa">@lupsa&lt;/a>, &lt;a href="https://github.com/jmooring">@jmooring&lt;/a>, &lt;a href="https://github.com/bep">@bep&lt;/a>, and &lt;a href="https://github.com/arhuman">@arhuman&lt;/a> for their work on the documentation site.&lt;/p>
+&lt;p>Hugo now has:&lt;/p>
+&lt;ul>
+&lt;li>51594+ &lt;a href="https://github.com/gohugoio/hugo/stargazers">stars&lt;/a>&lt;/li>
+&lt;li>432+ &lt;a href="https://github.com/gohugoio/hugo/graphs/contributors">contributors&lt;/a>&lt;/li>
+&lt;li>370+ &lt;a href="http://themes.gohugo.io/">themes&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="notes">Notes &lt;a class="header-link" href="#notes">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;ul>
+&lt;li>We have updated ESBUild to v0.11.16. There are no breaking changes on the API side, but you may want to read the release upstream release notes: &lt;a href="https://github.com/evanw/esbuild/releases/tag/v0.10.0">https://github.com/evanw/esbuild/releases/tag/v0.10.0&lt;/a> &lt;a href="https://github.com/evanw/esbuild/releases/tag/v0.11.0">https://github.com/evanw/esbuild/releases/tag/v0.11.0&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="enhancements">Enhancements &lt;a class="header-link" href="#enhancements">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;h3 id="templates">Templates &lt;a class="header-link" href="#templates">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
+&lt;ul>
+&lt;li>Remove the FuzzMarkdownify func for now &lt;a href="https://github.com/gohugoio/hugo/commit/5656a908d837f2aa21837d39712b8ab4aa6db842">5656a908&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="output">Output &lt;a class="header-link" href="#output">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
+&lt;ul>
+&lt;li>Make the shortcode template lookup for output formats stable &lt;a href="https://github.com/gohugoio/hugo/commit/0d86a32d8f3031e2124c8005b680b597f3c0e558">0d86a32d&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/7774">#7774&lt;/a>&lt;/li>
+&lt;li>Only output mediaType once in docshelper JSON &lt;a href="https://github.com/gohugoio/hugo/commit/7b4ade56dd50d89a91760fc5ef8e2f151874de96">7b4ade56&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8379">#8379&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="other">Other &lt;a class="header-link" href="#other">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
+&lt;ul>
+&lt;li>Regenerate docs helper &lt;a href="https://github.com/gohugoio/hugo/commit/a9b52b41758d20ae4c10b71721b22175395c69e9">a9b52b41&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Regenerate CLI docs &lt;a href="https://github.com/gohugoio/hugo/commit/b073a1c9723980eeb58717884006148dfc0e0c8e">b073a1c9&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Remove all dates from gendoc &lt;a href="https://github.com/gohugoio/hugo/commit/4227cc1bd308d1ef1ea151c86f72f537b5e77b1d">4227cc1b&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Update getkin/kin-openapi v0.60.0 =&amp;gt; v0.61. &lt;a href="https://github.com/gohugoio/hugo/commit/3cc4fdd6f358263ffde33ccbf61546f073979e32">3cc4fdd6&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Update github.com/evanw/esbuild v0.11.14 =&amp;gt; v0.11.16 &lt;a href="https://github.com/gohugoio/hugo/commit/78c1a6a7c6e14f006854ee97ec561abdcf6203fc">78c1a6a7&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Remove .Site.Authors from embedded templates &lt;a href="https://github.com/gohugoio/hugo/commit/f6745ad3588a7b3aaae228fec18fe0027affd566">f6745ad3&lt;/a> &lt;a href="https://github.com/jmooring">@jmooring&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/4458">#4458&lt;/a>&lt;/li>
+&lt;li>Don&amp;rsquo;t treat a NotFound response for Delete as a fatal error. &lt;a href="https://github.com/gohugoio/hugo/commit/f523e9f0fd0e0b0ce75879532caa834742297d16">f523e9f0&lt;/a> &lt;a href="https://github.com/vangent">@vangent&lt;/a>&lt;/li>
+&lt;li>Switch to deb packages of nodejs and python3-pygments &lt;a href="https://github.com/gohugoio/hugo/commit/63cd05ce5ae308c496b848f6b11bcb3fdbdf5cb2">63cd05ce&lt;/a> &lt;a href="https://github.com/anthonyfok">@anthonyfok&lt;/a>&lt;/li>
+&lt;li>Install bin/node from node/14/stable &lt;a href="https://github.com/gohugoio/hugo/commit/902535ef11fce449b377896ab7498c4799beb9ce">902535ef&lt;/a> &lt;a href="https://github.com/anthonyfok">@anthonyfok&lt;/a>&lt;/li>
+&lt;li>bump github.com/getkin/kin-openapi from 0.55.0 to 0.60.0 &lt;a href="https://github.com/gohugoio/hugo/commit/70aebba04d801fe6a3784394d25c433ffeb6d123">70aebba0&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>bump github.com/evanw/esbuild from 0.11.13 to 0.11.14 &lt;a href="https://github.com/gohugoio/hugo/commit/3e3b7d4474ea97a1990f303482a12f0c3031bd07">3e3b7d44&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>Update to Chroma v0.9.1 &lt;a href="https://github.com/gohugoio/hugo/commit/048418ba749d02eb3dde9d6895cedef2adaefefd">048418ba&lt;/a> &lt;a href="https://github.com/caarlos0">@caarlos0&lt;/a>&lt;/li>
+&lt;li>Improve plural handling of floats &lt;a href="https://github.com/gohugoio/hugo/commit/eebde0c2ac4964e91d26d8b0cf0ac43afcfd207f">eebde0c2&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8464">#8464&lt;/a>&lt;/li>
+&lt;li>bump github.com/evanw/esbuild from 0.11.12 to 0.11.13 &lt;a href="https://github.com/gohugoio/hugo/commit/65c502cc8110e49540cbe2b49ecd5a8ede9e67a1">65c502cc&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>Revise the plural implementation &lt;a href="https://github.com/gohugoio/hugo/commit/537c905ec103dc5adaf8a1b2ccdef5da7cc660fd">537c905e&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8454">#8454&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/7822">#7822&lt;/a>&lt;/li>
+&lt;li>Update to &amp;ldquo;base: core20&amp;rdquo; &lt;a href="https://github.com/gohugoio/hugo/commit/243951ebe9715d3da3968e96e6f60dcd53e25d92">243951eb&lt;/a> &lt;a href="https://github.com/anthonyfok">@anthonyfok&lt;/a>&lt;/li>
+&lt;li>bump github.com/frankban/quicktest from 1.11.3 to 1.12.0 &lt;a href="https://github.com/gohugoio/hugo/commit/fe2ee028024836695c99e28595393588e3930136">fe2ee028&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>bump google.golang.org/api from 0.44.0 to 0.45.0 &lt;a href="https://github.com/gohugoio/hugo/commit/316d65cd7049d60b0d5ac0080a87236198e74fc9">316d65cd&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>bump github.com/aws/aws-sdk-go from 1.37.11 to 1.38.23 &lt;a href="https://github.com/gohugoio/hugo/commit/b95229ab49ac2126aefe7802392ef34fdd021c3b">b95229ab&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>Correct function name in comment &lt;a href="https://github.com/gohugoio/hugo/commit/0551df090e6b2a391941bf7383b79c2dbc11d416">0551df09&lt;/a> &lt;a href="https://github.com/xhit">@xhit&lt;/a>&lt;/li>
+&lt;li>Upgraded github.com/evanw/esbuild v0.11.0 =&amp;gt; v0.11.12 &lt;a href="https://github.com/gohugoio/hugo/commit/057e5a22af937459082c3096ba3095b343d1a8bf">057e5a22&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Regen docs helper &lt;a href="https://github.com/gohugoio/hugo/commit/fd96f65a3d7755e49b4a70fb276dfffcba4e541a">fd96f65a&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>bump github.com/tdewolff/minify/v2 from 2.9.15 to 2.9.16 &lt;a href="https://github.com/gohugoio/hugo/commit/d3a64708f49139552ca79a199a4cbf6544375443">d3a64708&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>bump golang.org/x/text from 0.3.5 to 0.3.6 &lt;a href="https://github.com/gohugoio/hugo/commit/3b56244f425a72c783bb58c30542aeb4b045acca">3b56244f&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>Remove some unreachable code &lt;a href="https://github.com/gohugoio/hugo/commit/f5d3d635e6b88d7c5d304b80f04e7b4361349fd6">f5d3d635&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>bump github.com/getkin/kin-openapi from 0.39.0 to 0.55.0 &lt;a href="https://github.com/gohugoio/hugo/commit/0d3c42da56151325f16802b3b1a4105a21ce250e">0d3c42da&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>Some performance tweaks for the HTML elements collector &lt;a href="https://github.com/gohugoio/hugo/commit/ef34dd8f0e94e52ba6f1d5d607e4ac3ae98a7abb">ef34dd8f&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Exclude comment and doctype elements from writeStats &lt;a href="https://github.com/gohugoio/hugo/commit/bc80022e033a5462d1a9ce541f40a050994011cc">bc80022e&lt;/a> &lt;a href="https://github.com/dirkolbrich">@dirkolbrich&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8396">#8396&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/8417">#8417&lt;/a>&lt;/li>
+&lt;li>Merge branch &amp;lsquo;release-0.82.1&amp;rsquo; &lt;a href="https://github.com/gohugoio/hugo/commit/2bb9496ce29dfe90e8b3664ed8cf7f895011b2d4">2bb9496c&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>bump github.com/yuin/goldmark from 1.3.2 to 1.3.5 &lt;a href="https://github.com/gohugoio/hugo/commit/3ddffd064dbacf62aa854b26ea8ddc5d15ba1ef8">3ddffd06&lt;/a> &lt;a href="https://github.com/jmooring">@jmooring&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8377">#8377&lt;/a>&lt;/li>
+&lt;li>Remove duplicate references from release notes &lt;a href="https://github.com/gohugoio/hugo/commit/6fc52d185a98b86c70b6ba862549cc6aae782691">6fc52d18&lt;/a> &lt;a href="https://github.com/jmooring">@jmooring&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8360">#8360&lt;/a>&lt;/li>
+&lt;li>bump github.com/spf13/afero from 1.5.1 to 1.6.0 &lt;a href="https://github.com/gohugoio/hugo/commit/73c3ae818a7fc78febff092ac74772a114a2cbd2">73c3ae81&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>bump github.com/pelletier/go-toml from 1.8.1 to 1.9.0 &lt;a href="https://github.com/gohugoio/hugo/commit/7ca118fdfd9f0d1c636ef5e266c9000a20099e03">7ca118fd&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>Add webp image encoding support &lt;a href="https://github.com/gohugoio/hugo/commit/33d5f805923eb50dfb309d024f6555c59a339846">33d5f805&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/5924">#5924&lt;/a>&lt;/li>
+&lt;li>bump google.golang.org/api from 0.40.0 to 0.44.0 &lt;a href="https://github.com/gohugoio/hugo/commit/509d39fa6ddbba106c127b7923a41b0dcaea9381">509d39fa&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>bump github.com/nicksnyder/go-i18n/v2 from 2.1.1 to 2.1.2 &lt;a href="https://github.com/gohugoio/hugo/commit/7725c41d40b7009c2701a5ad3fa6bc9de57b88ee">7725c41d&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>bump github.com/rogpeppe/go-internal from 1.6.2 to 1.8.0 &lt;a href="https://github.com/gohugoio/hugo/commit/5d36d801534c0823697610fdb32e1eeb61f70e33">5d36d801&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>Remove extraneous space from figure shortcode &lt;a href="https://github.com/gohugoio/hugo/commit/9b34d42bb2ff05deaeeef63ff4b5b993f35f0451">9b34d42b&lt;/a> &lt;a href="https://github.com/jmooring">@jmooring&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8401">#8401&lt;/a>&lt;/li>
+&lt;li>bump github.com/magefile/mage from 1.10.0 to 1.11.0 &lt;a href="https://github.com/gohugoio/hugo/commit/c2d8f87cfc1c4ae666fbb1fb5b8983d43492333f">c2d8f87c&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>bump github.com/google/go-cmp from 0.5.4 to 0.5.5 &lt;a href="https://github.com/gohugoio/hugo/commit/cbc246616e88729322dad70971eae18ef59dd5d4">cbc24661&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>Disable broken pretty relative links feature &lt;a href="https://github.com/gohugoio/hugo/commit/fa432b17b349ed7e914af3625187e2c1dc2e243b">fa432b17&lt;/a> &lt;a href="https://github.com/niklasfasching">@niklasfasching&lt;/a>&lt;/li>
+&lt;li>Update go-org to v1.5.0 &lt;a href="https://github.com/gohugoio/hugo/commit/0cd55c66d370559b66eea220626c4842efaf7039">0cd55c66&lt;/a> &lt;a href="https://github.com/niklasfasching">@niklasfasching&lt;/a>&lt;/li>
+&lt;li>bump github.com/jdkato/prose from 1.2.0 to 1.2.1 &lt;a href="https://github.com/gohugoio/hugo/commit/0d5cf256e4f2a5babcbcf7b49a6818869c3c0691">0d5cf256&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>bump github.com/spf13/cobra from 1.1.1 to 1.1.3 &lt;a href="https://github.com/gohugoio/hugo/commit/36527576b30224dff2eae7f6c9f27eff807d5402">36527576&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>Add complete dependency list in &amp;ldquo;hugo env -v&amp;rdquo; &lt;a href="https://github.com/gohugoio/hugo/commit/9b83f45b6dcafa6e50df80a4786d6a36400a47fe">9b83f45b&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8400">#8400&lt;/a>&lt;/li>
+&lt;li>Add hugo.IsExtended &lt;a href="https://github.com/gohugoio/hugo/commit/7fdd2b95e20f322b0a47f63ff1010a04f47ce67b">7fdd2b95&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8399">#8399&lt;/a>&lt;/li>
+&lt;li>Also test minified HTML in the element collector &lt;a href="https://github.com/gohugoio/hugo/commit/3d5dbdcb1a11b059fc2f93ed6fadb9009bf72673">3d5dbdcb&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/7567">#7567&lt;/a>&lt;/li>
+&lt;li>Skip script, pre and textarea content when looking for HTML elements &lt;a href="https://github.com/gohugoio/hugo/commit/8a308944e46f8c2aa054005d5aed89f2711f9c1d">8a308944&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/7567">#7567&lt;/a>&lt;/li>
+&lt;li>Add slice syntax to sections permalinks config &lt;a href="https://github.com/gohugoio/hugo/commit/2dc222cec4460595af8569165d1c498bb45aac84">2dc222ce&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8363">#8363&lt;/a>&lt;/li>
+&lt;li>Upgrade github.com/evanw/esbuild v0.9.6 =&amp;gt; v0.11.0 &lt;a href="https://github.com/gohugoio/hugo/commit/4d22ad580ec8c8e5e27cf4f5cce69b6828aa8501">4d22ad58&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="fixes">Fixes &lt;a class="header-link" href="#fixes">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;h3 id="templates-1">Templates &lt;a class="header-link" href="#templates-1">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
+&lt;ul>
+&lt;li>Fix where on type mismatches &lt;a href="https://github.com/gohugoio/hugo/commit/e4dc9a82b557a417b1552c533b0df605c6ff1cc0">e4dc9a82&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8353">#8353&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="output-1">Output &lt;a class="header-link" href="#output-1">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
+&lt;ul>
+&lt;li>Regression in media type suffix lookup &lt;a href="https://github.com/gohugoio/hugo/commit/6e9d2bf0c936900f8f676d485098755b3f463373">6e9d2bf0&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8406">#8406&lt;/a>&lt;/li>
+&lt;li>Regression in media type suffix lookup &lt;a href="https://github.com/gohugoio/hugo/commit/e73f7a770dfb06f23d842d589bdd3d0fb53c7eed">e73f7a77&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8406">#8406&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="other-1">Other &lt;a class="header-link" href="#other-1">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
+&lt;ul>
+&lt;li>Fix multiple unknown language codes &lt;a href="https://github.com/gohugoio/hugo/commit/7eb80a9e6fcb6d31711effa20310cfefb7b23c1b">7eb80a9e&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/7838">#7838&lt;/a>&lt;/li>
+&lt;li>Fix permalinks pattern detection for some of the sections variants &lt;a href="https://github.com/gohugoio/hugo/commit/c13d368746992eb39a33f065ca808e129baec4ef">c13d3687&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8363">#8363&lt;/a>&lt;/li>
+&lt;li>Fix Params case handling in where with slices of structs (e.g. Pages) &lt;a href="https://github.com/gohugoio/hugo/commit/bca40cf0c9c7b75e6d5b4a9ac8b927eb17590c7e">bca40cf0&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/7009">#7009&lt;/a>&lt;/li>
+&lt;li>Fix typo in docshelper.go &lt;a href="https://github.com/gohugoio/hugo/commit/7c7974b711879938eafc08a2ce242d0f00c8e9e6">7c7974b7&lt;/a> &lt;a href="https://github.com/jmooring">@jmooring&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8380">#8380&lt;/a>&lt;/li>
+&lt;li>Try to fix the fuzz build &lt;a href="https://github.com/gohugoio/hugo/commit/5e2f1289118dc1489fb782bf289298a05104eeaf">5e2f1289&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>News: Hugo 0.82.1: One Bug Fix</title><link>https://gohugo.io/news/0.82.1-relnotes/</link><pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate><guid>https://gohugo.io/news/0.82.1-relnotes/</guid><description>
+&lt;p>This is a bug-fix release with one important fix.&lt;/p>
+&lt;ul>
+&lt;li>Regression in media type suffix lookup &lt;a href="https://github.com/gohugoio/hugo/commit/6e9d2bf0c936900f8f676d485098755b3f463373">6e9d2bf0&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8406">#8406&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>News: Hugo 0.82: Mostly bugfixes</title><link>https://gohugo.io/news/0.82.0-relnotes/</link><pubDate>Sun, 21 Mar 2021 00:00:00 +0000</pubDate><guid>https://gohugo.io/news/0.82.0-relnotes/</guid><description>
+&lt;img src="https://gohugo.io/news/0.82.0-relnotes/featured_hu5d8344c080499179dc5edbf7deb421a4_57106_640x0_resize_catmullrom_2.png" width="640" height="320"/>
+&lt;p>This is a small release, mostly a maintainance/bugfix release. But also notable is that you can now add custom Markdown attributes (e.g. CSS classes) to code fences (&lt;a href="https://github.com/gohugoio/hugo/commit/aed7df62a811b07b73ec5cbbf03e69e4bbf00919">aed7df62&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8278">#8278&lt;/a>) and that you can use the attribute lists in title render hooks (&lt;code>.Attributes&lt;/code>; see &lt;a href="https://github.com/gohugoio/hugo/commit/cd0c5d7ef32cbd570af00c50ce760452381df64e">cd0c5d7e&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8270">#8270&lt;/a>).&lt;/p>
+&lt;p>This release represents &lt;strong>28 contributions by 8 contributors&lt;/strong> to the main Hugo code base.&lt;a href="https://github.com/bep">@bep&lt;/a> leads the Hugo development with a significant amount of contributions, but also a big shoutout to &lt;a href="https://github.com/moorereason">@moorereason&lt;/a>, and &lt;a href="https://github.com/gzagatti">@gzagatti&lt;/a> for their ongoing contributions.
+And a big thanks to &lt;a href="https://github.com/digitalcraftsman">@digitalcraftsman&lt;/a> for his relentless work on keeping the themes site in pristine condition and to &lt;a href="https://github.com/davidsneighbour">@davidsneighbour&lt;/a>, &lt;a href="https://github.com/coliff">@coliff&lt;/a> and &lt;a href="https://github.com/kaushalmodi">@kaushalmodi&lt;/a> for all the great work on the documentation site.&lt;/p>
+&lt;p>Many have also been busy writing and fixing the documentation in &lt;a href="https://github.com/gohugoio/hugoDocs">hugoDocs&lt;/a>,
+which has received &lt;strong>20 contributions by 12 contributors&lt;/strong>. A special thanks to &lt;a href="https://github.com/bep">@bep&lt;/a>, &lt;a href="https://github.com/jmooring">@jmooring&lt;/a>, &lt;a href="https://github.com/rootkea">@rootkea&lt;/a>, and &lt;a href="https://github.com/PaulPineda">@PaulPineda&lt;/a> for their work on the documentation site.&lt;/p>
+&lt;p>Hugo now has:&lt;/p>
+&lt;ul>
+&lt;li>50763+ &lt;a href="https://github.com/gohugoio/hugo/stargazers">stars&lt;/a>&lt;/li>
+&lt;li>435+ &lt;a href="https://github.com/gohugoio/hugo/graphs/contributors">contributors&lt;/a>&lt;/li>
+&lt;li>370+ &lt;a href="http://themes.gohugo.io/">themes&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="notes">Notes &lt;a class="header-link" href="#notes">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;ul>
+&lt;li>We have made &lt;code>.MediaType&lt;/code> comparable &lt;a href="https://github.com/gohugoio/hugo/commit/ba1d0051b44fdd242b20899e195e37ab26501516">ba1d0051&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8317">#8317&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/8324">#8324&lt;/a>. This also means that the old &lt;code>MediaType.Suffix&lt;/code> and &lt;code>MediaType.FullSuffix&lt;/code> is moved to &lt;code>MediaType.FirstSuffix.Suffix&lt;/code> and &lt;code>MediaType.FirstSuffix.FullSuffix&lt;/code>, which also better describes what they represent.&lt;/li>
+&lt;/ul>
+&lt;h2 id="enhancements">Enhancements &lt;a class="header-link" href="#enhancements">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;h3 id="templates">Templates &lt;a class="header-link" href="#templates">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
+&lt;ul>
+&lt;li>Add method mappings for strings.Contains, strings.ContainsAny &lt;a href="https://github.com/gohugoio/hugo/commit/7f8530039aa018f23bad9d58e97777705a6d19ac">7f853003&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="output">Output &lt;a class="header-link" href="#output">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
+&lt;ul>
+&lt;li>Make Type comparable &lt;a href="https://github.com/gohugoio/hugo/commit/ba1d0051b44fdd242b20899e195e37ab26501516">ba1d0051&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8317">#8317&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/8324">#8324&lt;/a>&lt;/li>
+&lt;li>Add a basic benchmark &lt;a href="https://github.com/gohugoio/hugo/commit/4d24e2a3261d8c7dc0395db3ac4de89ebb0974a5">4d24e2a3&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="other">Other &lt;a class="header-link" href="#other">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
+&lt;ul>
+&lt;li>Regenerate docs helper &lt;a href="https://github.com/gohugoio/hugo/commit/86b4fd35e78f545510f19b49246a3ccf5487831b">86b4fd35&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Regen CLI docs &lt;a href="https://github.com/gohugoio/hugo/commit/195d108da75c9e5b9ef790bc4a5879c1e913964b">195d108d&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Simplify some config loading code &lt;a href="https://github.com/gohugoio/hugo/commit/df8bb8812f466bce563cdba297db3cd3f954a799">df8bb881&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Update github.com/evanw/esbuild v0.9.0 =&amp;gt; v0.9.6 &lt;a href="https://github.com/gohugoio/hugo/commit/57d8d208ed2245858c6439f19803bf2749f9377f">57d8d208&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Apply OS env overrides twice &lt;a href="https://github.com/gohugoio/hugo/commit/fc06e85082b63a54d9403e57c8d01a7d5a62fc04">fc06e850&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Attributes for code fences should be placed after the lang indicator only &lt;a href="https://github.com/gohugoio/hugo/commit/b725253f9e3033e18bd45096c0622e6fb7b1ff79">b725253f&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8313">#8313&lt;/a>&lt;/li>
+&lt;li>Bump github.com/tdewolff/minify/v2 v2.9.15 &lt;a href="https://github.com/gohugoio/hugo/commit/35dedf15c04a605df4d4a09263b0b299e5161f86">35dedf15&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8332">#8332&lt;/a>&lt;/li>
+&lt;li>More explicit support link to discourse &lt;a href="https://github.com/gohugoio/hugo/commit/137d2dab3285e9b0f8fe4dcc65ab6ecf8bb09002">137d2dab&lt;/a> &lt;a href="https://github.com/davidsneighbour">@davidsneighbour&lt;/a>&lt;/li>
+&lt;li>Update to esbuild v0.9.0 &lt;a href="https://github.com/gohugoio/hugo/commit/1b1dcf586e220c3a8ad5ecfa8e4c3dac97f0ab44">1b1dcf58&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Allow more spacing characters in strings &lt;a href="https://github.com/gohugoio/hugo/commit/0a2ab3f8feb961f8394b1f9964fab36bfa468027">0a2ab3f8&lt;/a> &lt;a href="https://github.com/moorereason">@moorereason&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8079">#8079&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/8079">#8079&lt;/a>&lt;/li>
+&lt;li>Rename a test &lt;a href="https://github.com/gohugoio/hugo/commit/35bfb662229226d5f3cc3077ca74323f0aa88b7d">35bfb662&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Add a debug helper &lt;a href="https://github.com/gohugoio/hugo/commit/6d21559fb55cda39c7b92bb61fd8e65a84465fe5">6d21559f&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Add support for Google Analytics v4 &lt;a href="https://github.com/gohugoio/hugo/commit/ba16a14c6e884e309380610331aff78213f84751">ba16a14c&lt;/a> &lt;a href="https://github.com/djatwood">@djatwood&lt;/a>&lt;/li>
+&lt;li>Bump go.mod to Go 1.16 &lt;a href="https://github.com/gohugoio/hugo/commit/782c79ae61a5ec30746ce3729933d6b4d31e0540">782c79ae&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8294">#8294&lt;/a>&lt;/li>
+&lt;li>#8210 Upgrade golang version for Dockerfile &lt;a href="https://github.com/gohugoio/hugo/commit/5afcae7e0b4c08bc37db6e34ab4cf960558f4b6e">5afcae7e&lt;/a> &lt;a href="https://github.com/systemkern">@systemkern&lt;/a>&lt;/li>
+&lt;li>Update CONTRIBUTING.md &lt;a href="https://github.com/gohugoio/hugo/commit/60469f429e227631d76d951f2ed92986f0bd92e9">60469f42&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Handle attribute lists in code fences &lt;a href="https://github.com/gohugoio/hugo/commit/aed7df62a811b07b73ec5cbbf03e69e4bbf00919">aed7df62&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8278">#8278&lt;/a>&lt;/li>
+&lt;li>Allow markdown attribute lists to be used in title render hooks &lt;a href="https://github.com/gohugoio/hugo/commit/cd0c5d7ef32cbd570af00c50ce760452381df64e">cd0c5d7e&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8270">#8270&lt;/a>&lt;/li>
+&lt;li>bump github.com/kyokomi/emoji/v2 from 2.2.7 to 2.2.8 &lt;a href="https://github.com/gohugoio/hugo/commit/88a85dcea951b0b5622cf02b167ec9299d93118b">88a85dce&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="fixes">Fixes &lt;a class="header-link" href="#fixes">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;h3 id="output-1">Output &lt;a class="header-link" href="#output-1">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
+&lt;ul>
+&lt;li>Fix output format handling for render hooks &lt;a href="https://github.com/gohugoio/hugo/commit/18074d0c2375cc4bf4d7933dd4206cb878a23d1c">18074d0c&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8176">#8176&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="other-1">Other &lt;a class="header-link" href="#other-1">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
+&lt;ul>
+&lt;li>Fix OS env override for nested config param only available in theme &lt;a href="https://github.com/gohugoio/hugo/commit/7ed56c6941edfdfa42eef2b779020b5d46ca194a">7ed56c69&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8346">#8346&lt;/a>&lt;/li>
+&lt;li>Fix &lt;code>new theme&lt;/code> command description &lt;a href="https://github.com/gohugoio/hugo/commit/24c716cac35b0c5476944108e545058749c43e61">24c716ca&lt;/a> &lt;a href="https://github.com/rootkea">@rootkea&lt;/a>&lt;/li>
+&lt;li>Fix handling of utf8 runes in nullString() &lt;a href="https://github.com/gohugoio/hugo/commit/f6612d8bd8c4c3bb498178d14f45d3acdf86aa7c">f6612d8b&lt;/a> &lt;a href="https://github.com/moorereason">@moorereason&lt;/a>&lt;/li>
+&lt;li>Fixes #7698. &lt;a href="https://github.com/gohugoio/hugo/commit/01dd7c16af6204d18d530f9d3018689215482170">01dd7c16&lt;/a> &lt;a href="https://github.com/gzagatti">@gzagatti&lt;/a>&lt;/li>
+&lt;li>Fix autocomplete docs &lt;a href="https://github.com/gohugoio/hugo/commit/c8f45d1d861f596821afc068bd12eb1213aba5ce">c8f45d1d&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>News: Hugo 0.81.0: The Smorgasbord Edition</title><link>https://gohugo.io/news/0.81.0-relnotes/</link><pubDate>Fri, 19 Feb 2021 00:00:00 +0000</pubDate><guid>https://gohugo.io/news/0.81.0-relnotes/</guid><description>
+&lt;img src="https://gohugo.io/news/0.81.0-relnotes/featured_hu58c8ecd7359167d9f1e2a412ca212ed7_345282_640x0_resize_q75_catmullrom.jpg" width="640" height="320"/>
+&lt;p>&lt;strong>Hugo 0.81.0&lt;/strong> is the first release of this decade, it is the fastest to date, and it&amp;rsquo;s packed with useful new features.&lt;/p>
+&lt;h2 id="newlines-in-template-actions-and-commands">Newlines in Template Actions and Commands &lt;a class="header-link" href="#newlines-in-template-actions-and-commands">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;p>You can now have newlines within template actions and pipelines. This means that you can now do this and similar:&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-go-html-template" data-lang="go-html-template">&lt;span class="cp">{{&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nx">dict&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;country&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;Norway&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;population&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;5 millions&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;language&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;Norwegian&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;language_code&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;nb&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;weather&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;freezing cold&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;capitol&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;Oslo&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;largest_city&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;Oslo&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;currency&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;Norwegian krone&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;dialing_code&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;+47&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="cp">}}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Note that the above construction will fail in Hugo versions &amp;lt; &lt;code>0.81.0&lt;/code>.&lt;/p>
+&lt;h2 id="attribute-lists-after-markdown-blocks">Attribute Lists after Markdown Blocks &lt;a class="header-link" href="#attribute-lists-after-markdown-blocks">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;p>Hugo already supports adding attribute lists (e.g CSS classes) after titles. We now also allow adding attribute lists after Markdown blocks, e.g. tables, lists, paragraphs etc.:&lt;/p>
+&lt;pre>&lt;code>&amp;gt; foo
+&amp;gt; bar
+{.myclass}
+&lt;/code>&lt;/pre>&lt;p>See &lt;a href="https://gohugo.io/getting-started/configuration-markup#goldmark">Configure Goldmark&lt;/a>.&lt;/p>
+&lt;h2 id="performance">Performance &lt;a class="header-link" href="#performance">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;p>This release is the fastest Hugo to date, see details in the benchmarks below. This is &lt;a href="https://gohugo.io/news/hugo-macos-intel-vs-arm/">especially true&lt;/a> if you use the new ARM64 MacOS binary (only works on &lt;a href="https://en.wikipedia.org/wiki/Apple_M1">Apple M1&lt;/a> devices).&lt;/p>
+&lt;h3 id="site-building-and-rebuilding-benchmarks-v0800--v0810">Site Building and Rebuilding Benchmarks: v0.80.0 =&amp;gt; v0.81.0 &lt;a class="header-link" href="#site-building-and-rebuilding-benchmarks-v0800--v0810">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
+&lt;pre>&lt;code>name old time/op new time/op delta
+SiteNew/Edit_Bundle_with_image-16 771µs ± 6% 817µs ± 7% ~ (p=0.200 n=4+4)
+SiteNew/Edit_Bundle_with_JSON_file-16 728µs ± 2% 737µs ± 1% ~ (p=0.343 n=4+4)
+SiteNew/Edit_Tags_and_categories-16 16.6ms ± 5% 16.3ms ± 3% ~ (p=0.686 n=4+4)
+SiteNew/Edit_Canonify_URLs-16 29.4ms ± 6% 26.9ms ± 4% -8.37% (p=0.029 n=4+4)
+SiteNew/Edit_Deep_content_tree-16 33.8ms ± 3% 31.2ms ± 3% -7.53% (p=0.029 n=4+4)
+SiteNew/Edit_Many_HTML_templates-16 12.1ms ± 2% 11.6ms ± 1% -3.94% (p=0.029 n=4+4)
+SiteNew/Edit_Page_collections-16 20.6ms ± 1% 19.8ms ± 0% -3.57% (p=0.029 n=4+4)
+SiteNew/Edit_List_terms-16 3.91ms ± 1% 3.81ms ± 2% -2.52% (p=0.029 n=4+4)
+SiteNew/Regular_Bundle_with_image-16 6.15ms ± 2% 5.53ms ± 2% -10.11% (p=0.029 n=4+4)
+SiteNew/Regular_Bundle_with_JSON_file-16 6.26ms ± 4% 5.76ms ± 4% -7.98% (p=0.029 n=4+4)
+SiteNew/Regular_Tags_and_categories-16 26.2ms ± 2% 25.5ms ± 1% -2.42% (p=0.029 n=4+4)
+SiteNew/Regular_Canonify_URLs-16 34.7ms ± 8% 33.8ms ± 9% ~ (p=0.486 n=4+4)
+SiteNew/Regular_Deep_content_tree-16 43.8ms ± 1% 43.4ms ± 6% ~ (p=0.343 n=4+4)
+SiteNew/Regular_Many_HTML_templates-16 21.5ms ± 1% 19.7ms ± 2% -8.54% (p=0.029 n=4+4)
+SiteNew/Regular_Page_collections-16 30.7ms ± 2% 28.2ms ± 1% -8.23% (p=0.029 n=4+4)
+SiteNew/Regular_List_terms-16 9.70ms ± 1% 8.95ms ± 0% -7.72% (p=0.029 n=4+4)
+name old alloc/op new alloc/op delta
+SiteNew/Edit_Bundle_with_image-16 437kB ± 0% 428kB ± 0% -2.02% (p=0.029 n=4+4)
+SiteNew/Edit_Bundle_with_JSON_file-16 216kB ± 0% 207kB ± 0% -4.20% (p=0.029 n=4+4)
+SiteNew/Edit_Tags_and_categories-16 10.4MB ± 0% 9.7MB ± 0% -6.08% (p=0.029 n=4+4)
+SiteNew/Edit_Canonify_URLs-16 84.4MB ± 0% 85.2MB ± 0% +0.87% (p=0.029 n=4+4)
+SiteNew/Edit_Deep_content_tree-16 26.6MB ± 0% 25.6MB ± 0% -3.57% (p=0.029 n=4+4)
+SiteNew/Edit_Many_HTML_templates-16 6.03MB ± 0% 5.75MB ± 0% -4.57% (p=0.029 n=4+4)
+SiteNew/Edit_Page_collections-16 14.8MB ± 0% 14.2MB ± 0% -4.10% (p=0.029 n=4+4)
+SiteNew/Edit_List_terms-16 1.83MB ± 0% 1.73MB ± 0% -5.51% (p=0.029 n=4+4)
+SiteNew/Regular_Bundle_with_image-16 1.93MB ± 0% 1.90MB ± 0% -1.43% (p=0.029 n=4+4)
+SiteNew/Regular_Bundle_with_JSON_file-16 1.72MB ± 0% 1.69MB ± 0% -1.72% (p=0.029 n=4+4)
+SiteNew/Regular_Tags_and_categories-16 14.3MB ± 0% 13.6MB ± 0% -4.80% (p=0.029 n=4+4)
+SiteNew/Regular_Canonify_URLs-16 89.7MB ± 0% 90.2MB ± 0% +0.61% (p=0.029 n=4+4)
+SiteNew/Regular_Deep_content_tree-16 30.4MB ± 0% 29.2MB ± 0% -3.95% (p=0.029 n=4+4)
+SiteNew/Regular_Many_HTML_templates-16 9.26MB ± 0% 8.94MB ± 0% -3.47% (p=0.029 n=4+4)
+SiteNew/Regular_Page_collections-16 18.5MB ± 0% 17.7MB ± 0% -4.25% (p=0.029 n=4+4)
+SiteNew/Regular_List_terms-16 4.00MB ± 0% 3.85MB ± 0% -3.55% (p=0.029 n=4+4)
+name old allocs/op new allocs/op delta
+SiteNew/Edit_Bundle_with_image-16 3.99k ± 0% 4.07k ± 0% +1.80% (p=0.029 n=4+4)
+SiteNew/Edit_Bundle_with_JSON_file-16 3.99k ± 0% 4.06k ± 0% +1.81% (p=0.029 n=4+4)
+SiteNew/Edit_Tags_and_categories-16 241k ± 0% 245k ± 0% +1.67% (p=0.029 n=4+4)
+SiteNew/Edit_Canonify_URLs-16 364k ± 0% 321k ± 0% -11.78% (p=0.029 n=4+4)
+SiteNew/Edit_Deep_content_tree-16 264k ± 0% 268k ± 0% +1.53% (p=0.029 n=4+4)
+SiteNew/Edit_Many_HTML_templates-16 90.3k ± 0% 91.0k ± 0% +0.83% (p=0.029 n=4+4)
+SiteNew/Edit_Page_collections-16 153k ± 0% 156k ± 0% +1.46% (p=0.029 n=4+4)
+SiteNew/Edit_List_terms-16 30.4k ± 0% 30.9k ± 0% +1.54% (p=0.029 n=4+4)
+SiteNew/Regular_Bundle_with_image-16 23.3k ± 0% 23.1k ± 0% -0.57% (p=0.029 n=4+4)
+SiteNew/Regular_Bundle_with_JSON_file-16 23.3k ± 0% 23.1k ± 0% -0.59% (p=0.029 n=4+4)
+SiteNew/Regular_Tags_and_categories-16 284k ± 0% 288k ± 0% +1.58% (p=0.029 n=4+4)
+SiteNew/Regular_Canonify_URLs-16 387k ± 0% 343k ± 0% -11.41% (p=0.029 n=4+4)
+SiteNew/Regular_Deep_content_tree-16 307k ± 0% 309k ± 0% +0.52% (p=0.029 n=4+4)
+SiteNew/Regular_Many_HTML_templates-16 129k ± 0% 129k ± 0% +0.35% (p=0.029 n=4+4)
+SiteNew/Regular_Page_collections-16 199k ± 0% 200k ± 0% +0.55% (p=0.029 n=4+4)
+SiteNew/Regular_List_terms-16 53.5k ± 0% 53.4k ± 0% -0.18% (p=0.029 n=4+4)
+&lt;/code>&lt;/pre>&lt;h2 id="native-arm-binary-for-apple-m1">Native Arm Binary for Apple M1 &lt;a class="header-link" href="#native-arm-binary-for-apple-m1">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;p>We finally provide native Hugo binary for &lt;a href="https://en.wikipedia.org/wiki/Apple_M1">Apple M1&lt;/a> devices. Download the file named &lt;code>hugo_0.81.0_macOS-ARM64.tar.gz&lt;/code>.&lt;/p>
+&lt;h2 id="javascript-building">JavaScript Building &lt;a class="header-link" href="#javascript-building">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;ul>
+&lt;li>Add &lt;code>inject&lt;/code> config option allowing you to automatically replace a global variable with an import from another file relative to &lt;code>assets&lt;/code>. &lt;a href="https://github.com/gohugoio/hugo/commit/32b86076ee1c0833b538b84e1cc9e6d79babecf2">32b86076&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8164">#8164&lt;/a>&lt;/li>
+&lt;li>Add &lt;code>shims&lt;/code> config option to swap out a component with another. A common use case is to load dependencies like React from a CDN (with &lt;em>shims&lt;/em>) when in production, but running with the full bundled &lt;code>node_modules&lt;/code> dependency during development &lt;a href="https://github.com/gohugoio/hugo/commit/e19a046c4be9b0654884259b9df94f41561e4fc3">e19a046c&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8165">#8165&lt;/a>&lt;/li>
+&lt;li>Add external source map support to js.Build and Babel &lt;a href="https://github.com/gohugoio/hugo/commit/2c8b5d9165011c4b24b494e661ae60dfc7bb7d1b">2c8b5d91&lt;/a> &lt;a href="https://github.com/richtera">@richtera&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8132">#8132&lt;/a>&lt;/li>
+&lt;li>Fix nilpointer in js.Build error handling &lt;a href="https://github.com/gohugoio/hugo/commit/a1fe552fc9e622a15010a94281f604eb85bebd84">a1fe552f&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8162">#8162&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Also see &lt;a href="https://gohugo.io/hugo-pipes/js#options">js.Build Options&lt;/a>.&lt;/p>
+&lt;h2 id="hugo-modules">Hugo Modules &lt;a class="header-link" href="#hugo-modules">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;p>There are several &lt;a href="https://gohugo.io/hugo-modules/">Hugo Modules&lt;/a>-related improvements in this release:&lt;/p>
+&lt;ul>
+&lt;li>Allow absolute paths for any modules resolved via project replacement &lt;a href="https://github.com/gohugoio/hugo/commit/3a5ee0d2d6e344b12efc7a97354ec3480c4c578b">3a5ee0d2&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8240">#8240&lt;/a>&lt;/li>
+&lt;li>Add config option modules.vendorClosest &lt;a href="https://github.com/gohugoio/hugo/commit/bdfbcf6f4b4ab53a617ab76f72e8aa28da6067de">bdfbcf6f&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8235">#8235&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/8242">#8242&lt;/a>&lt;/li>
+&lt;li>Throw an error running hugo mod vendor on mountless module &lt;a href="https://github.com/gohugoio/hugo/commit/4ffaeaf15536596c94dc73b393ca7894e3bd5e2c">4ffaeaf1&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="minify---keep-comments">Minify - Keep Comments &lt;a class="header-link" href="#minify---keep-comments">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;p>Keep comments when running &lt;code>hugo --minify&lt;/code> with a new setting:&lt;/p>
+&lt;div class="code relative" id="config">
+&lt;div class="code-nav flex flex-nowrap items-stretch">&lt;div class="san-serif f6 dib lh-solid pl2 pv2 mr2">config.&lt;/div>
+&lt;button data-toggle-tab="yaml" class="tab-button active ba san-serif f6 dib lh-solid ph2 pv2">yaml&lt;/button>&amp;nbsp;
+&lt;button data-toggle-tab="toml" class="tab-button ba san-serif f6 dib lh-solid ph2 pv2">toml&lt;/button>&amp;nbsp;
+&lt;button data-toggle-tab="json" class="tab-button ba san-serif f6 dib lh-solid ph2 pv2">json&lt;/button>&amp;nbsp;
+&lt;/div>
+&lt;div class="tab-content">
+&lt;div data-pane="yaml" class="code-copy-content nt3 tab-pane active">
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">minify&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">tdewolff&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">keepComments&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/div>
+&lt;button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+&lt;/button>
+&lt;div data-pane="toml" class="code-copy-content nt3 tab-pane ">
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="p">[&lt;/span>&lt;span class="nx">minify&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">minify&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">tdewolff&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">minify&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">tdewolff&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">html&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">keepComments&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>
+&lt;/div>
+&lt;button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+&lt;/button>
+&lt;div data-pane="json" class="code-copy-content nt3 tab-pane ">
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;minify&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;tdewolff&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;html&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;keepComments&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>
+&lt;/div>
+&lt;button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;p>The default value for this setting is &lt;code>false&lt;/code>.&lt;/p>
+&lt;h2 id="statistics">Statistics &lt;a class="header-link" href="#statistics">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;p>This release represents &lt;strong>59 contributions by 14 contributors&lt;/strong> to the main Hugo code base.&lt;a href="https://github.com/bep">@bep&lt;/a> leads the Hugo development with a significant amount of contributions, but also a big shoutout to &lt;a href="https://github.com/moorereason">@moorereason&lt;/a> and &lt;a href="https://github.com/benmezger">@benmezger&lt;/a> for their ongoing contributions. And a big thanks to &lt;a href="https://github.com/digitalcraftsman">@digitalcraftsman&lt;/a> for his relentless work on keeping the themes site in pristine condition and to &lt;a href="https://github.com/davidsneighbour">@davidsneighbour&lt;/a>, &lt;a href="https://github.com/coliff">@coliff&lt;/a> and &lt;a href="https://github.com/kaushalmodi">@kaushalmodi&lt;/a> for all the great work on the documentation site.&lt;/p>
+&lt;p>Many have also been busy writing and fixing the documentation in &lt;a href="https://github.com/gohugoio/hugoDocs">hugoDocs&lt;/a>,
+which has received &lt;strong>20 contributions by 13 contributors&lt;/strong>. A special thanks to &lt;a href="https://github.com/bep">@bep&lt;/a>, &lt;a href="https://github.com/gagarine">@gagarine&lt;/a>, &lt;a href="https://github.com/fridde">@fridde&lt;/a>, and &lt;a href="https://github.com/NicoHood">@NicoHood&lt;/a> for their work on the documentation site.&lt;/p>
+&lt;p>Hugo now has:&lt;/p>
+&lt;ul>
+&lt;li>50152+ &lt;a href="https://github.com/gohugoio/hugo/stargazers">stars&lt;/a>&lt;/li>
+&lt;li>435+ &lt;a href="https://github.com/gohugoio/hugo/graphs/contributors">contributors&lt;/a>&lt;/li>
+&lt;li>370+ &lt;a href="http://themes.gohugo.io/">themes&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="notes">Notes &lt;a class="header-link" href="#notes">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;ul>
+&lt;li>We have updated to Beta 6 of the Dart Sass Protocol which is not backwards compatible, so if you use Dart Sass you need to also update &lt;a href="https://gohugo.io/hugo-pipes/scss-sass/#options">that binary&lt;/a>.&lt;/li>
+&lt;li>&lt;code>hugo gen autocomplete&lt;/code> now default to &lt;code>stdout&lt;/code>; you can change this by setting &lt;code>--completionfile&lt;/code>. As an added bonus we now also support auto completion for zsh, fish and powershell.&lt;/li>
+&lt;/ul>
+&lt;h2 id="changelog">Changelog &lt;a class="header-link" href="#changelog">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;ul>
+&lt;li>Make the build green again &lt;a href="https://github.com/gohugoio/hugo/commit/fe77f7434bc0d7a9b54af69014eb28dbea2b236b">fe77f743&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Regenerate internal templates &lt;a href="https://github.com/gohugoio/hugo/commit/c60806550a21062936b0d02708c9a8c240cafa9d">c6080655&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Update date logic of opengraph and schema internal templates &lt;a href="https://github.com/gohugoio/hugo/commit/ffd9dac4218b8f1709de04f7131ca661715fc481">ffd9dac4&lt;/a> &lt;a href="https://github.com/djatwood">@djatwood&lt;/a>&lt;/li>
+&lt;li>Synch Go templates fork with Go 1.16dev &lt;a href="https://github.com/gohugoio/hugo/commit/cf3e077da304e6f4d7c22f8296e1382335d055c6">cf3e077d&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Exclude pages without Permalink from sitemap &lt;a href="https://github.com/gohugoio/hugo/commit/4867cd1dea34ee53fb73cede2bcff4792e470104">4867cd1d&lt;/a> &lt;a href="https://github.com/Jaza">@Jaza&lt;/a>&lt;/li>
+&lt;li>Add default user-agent header for getJSON requests &lt;a href="https://github.com/gohugoio/hugo/commit/35def0ae4560bb86febd12663bf5602485ad4b20">35def0ae&lt;/a> &lt;a href="https://github.com/peacecwz">@peacecwz&lt;/a>&lt;/li>
+&lt;li>remove 1mb limit for readFile. &lt;a href="https://github.com/gohugoio/hugo/commit/ee9c1367635eab446fcf9baa1ab8b4066882548e">ee9c1367&lt;/a> &lt;a href="https://github.com/avdva">@avdva&lt;/a>&lt;/li>
+&lt;li>Do not return errors in substr for out-of-bounds cases &lt;a href="https://github.com/gohugoio/hugo/commit/8a26ab0bc5dd9fa34e1362681fc08b0e522cd4ea">8a26ab0b&lt;/a> &lt;a href="https://github.com/moorereason">@moorereason&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8113">#8113&lt;/a>&lt;/li>
+&lt;li>Add missing test scenario for strings.Substr &lt;a href="https://github.com/gohugoio/hugo/commit/788e50ad3a55609ed49ce0b7ee98965c181fe9cf">788e50ad&lt;/a> &lt;a href="https://github.com/moorereason">@moorereason&lt;/a>&lt;/li>
+&lt;li>Regen CLI docs &lt;a href="https://github.com/gohugoio/hugo/commit/9e99950c6ebf82c85ee52a8de85e284a506a2f90">9e99950c&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Regen docs helper &lt;a href="https://github.com/gohugoio/hugo/commit/1b364b003f68df3adb1644769fe69810d85e3897">1b364b00&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Run go mod tidy &lt;a href="https://github.com/gohugoio/hugo/commit/88b93a09dc79518d7fbd14681eeeea3411dab1dd">88b93a09&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Add arm64 to Darwinextended build and add vendorInfo &lt;a href="https://github.com/gohugoio/hugo/commit/29fb456c9e63ee1a2314bf4a7227a5146e7f9b31">29fb456c&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8003">#8003&lt;/a>&lt;/li>
+&lt;li>Update Travis, GitHub, CircleCI and Snap to Go 1.16 (only) &lt;a href="https://github.com/gohugoio/hugo/commit/718fba7d63424017cb3b9774c33e7acc69c68af6">718fba7d&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Pull in latest Go 1.16 template source &lt;a href="https://github.com/gohugoio/hugo/commit/e77b2e3aa0b24c5ca960905772335b27845705eb">e77b2e3a&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Add breaking tests for &amp;ldquo;map read and map write in templates&amp;rdquo; &lt;a href="https://github.com/gohugoio/hugo/commit/b5485aeae7e1f73f18835fbf0b8eedc305d450d0">b5485aea&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/7293">#7293&lt;/a>&lt;/li>
+&lt;li>Pull in latest Go template source &lt;a href="https://github.com/gohugoio/hugo/commit/ccb822eb5afad210432eb46ec3727e3536a87f58">ccb822eb&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Expand template newline testcase to commands &lt;a href="https://github.com/gohugoio/hugo/commit/21e9eb18acc2a2f8d8b97f096615b836e65091a2">21e9eb18&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Add a test case for Go 1.16 template action newlines &lt;a href="https://github.com/gohugoio/hugo/commit/ae57ba6a9dee87347fa2d5e8c6865f390989622e">ae57ba6a&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Update github.com/tdewolff/minify/v2 v2.6.2 =&amp;gt; v2.9.13 &lt;a href="https://github.com/gohugoio/hugo/commit/66beac99c64b5e5fe7bec0bda437ba5858d49a36">66beac99&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8258">#8258&lt;/a>&lt;/li>
+&lt;li>bump github.com/frankban/quicktest from 1.11.2 to 1.11.3 &lt;a href="https://github.com/gohugoio/hugo/commit/968dd7a711063934af84bd1c017c58a1e66f51bb">968dd7a7&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>bump github.com/getkin/kin-openapi from 0.32.0 to 0.39.0 &lt;a href="https://github.com/gohugoio/hugo/commit/38f29e817f2058ed56f96fb8e628315f3ab5d7f9">38f29e81&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>bump github.com/aws/aws-sdk-go from 1.36.33 to 1.37.11 &lt;a href="https://github.com/gohugoio/hugo/commit/cd87813aa0327ec7a7e6f023dadcea5a3e6a9fef">cd87813a&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>bump github.com/sanity-io/litter from 1.3.0 to 1.5.0 &lt;a href="https://github.com/gohugoio/hugo/commit/4e815b063e4af70f21b6796688025675253bec65">4e815b06&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>bump github.com/olekukonko/tablewriter from 0.0.4 to 0.0.5 &lt;a href="https://github.com/gohugoio/hugo/commit/652a59d38523e23e39376cba9c554abbe87b198d">652a59d3&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>Update to esbuild v0.8.46 &lt;a href="https://github.com/gohugoio/hugo/commit/84f0ec7f80855dcc9b123418bcbf816b5efa2cdf">84f0ec7f&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Add config option modules.vendorClosest &lt;a href="https://github.com/gohugoio/hugo/commit/bdfbcf6f4b4ab53a617ab76f72e8aa28da6067de">bdfbcf6f&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8235">#8235&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/8242">#8242&lt;/a>&lt;/li>
+&lt;li>bump google.golang.org/api from 0.26.0 to 0.40.0 &lt;a href="https://github.com/gohugoio/hugo/commit/a9b0fea6a3aec658912a8db134824dee4a9b6369">a9b0fea6&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>Change version string format and add VendorInfo to help with issue triaging &lt;a href="https://github.com/gohugoio/hugo/commit/e8df09774534abe6131eb455b4f5c614fb438983">e8df0977&lt;/a> &lt;a href="https://github.com/anthonyfok">@anthonyfok&lt;/a>&lt;/li>
+&lt;li>Allow absolute paths for any modules resolved via project replacement &lt;a href="https://github.com/gohugoio/hugo/commit/3a5ee0d2d6e344b12efc7a97354ec3480c4c578b">3a5ee0d2&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8240">#8240&lt;/a>&lt;/li>
+&lt;li>Throw an error running hugo mod vendor on mountless module &lt;a href="https://github.com/gohugoio/hugo/commit/4ffaeaf15536596c94dc73b393ca7894e3bd5e2c">4ffaeaf1&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Add PowerShell completion support &lt;a href="https://github.com/gohugoio/hugo/commit/5f621df2570236a08cd21e8dd1c60502ec3db328">5f621df2&lt;/a> &lt;a href="https://github.com/anthonyfok">@anthonyfok&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8122">#8122&lt;/a>&lt;/li>
+&lt;li>Refer to mage instead of make in comment regarding commitHash &lt;a href="https://github.com/gohugoio/hugo/commit/7118f89cf35246767e26dcb5e747469ffa61f473">7118f89c&lt;/a> &lt;a href="https://github.com/anthonyfok">@anthonyfok&lt;/a>&lt;/li>
+&lt;li>Add attributes support for blocks (tables etc.) &lt;a href="https://github.com/gohugoio/hugo/commit/2681633db8d340d2dc59cf801419874d572fc704">2681633d&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/7548">#7548&lt;/a>&lt;/li>
+&lt;li>Update to Goldmark v1.3.2 &lt;a href="https://github.com/gohugoio/hugo/commit/1b2472825664763c0b88807b0d193e73553423ec">1b247282&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8143">#8143&lt;/a>&lt;/li>
+&lt;li>Update to Dart Sass Protocol beta6 &lt;a href="https://github.com/gohugoio/hugo/commit/441b11beec3cf0371ff9a2898f220a0bf00faf8c">441b11be&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Write to stdout by default &lt;a href="https://github.com/gohugoio/hugo/commit/d36fd5b3ee6989203de2a29b1de67521fd1c8ea5">d36fd5b3&lt;/a> &lt;a href="https://github.com/benmezger">@benmezger&lt;/a>&lt;/li>
+&lt;li>Remove powershell support &lt;a href="https://github.com/gohugoio/hugo/commit/a7c515e1b56e8cab34ca2647b4116904df9c8250">a7c515e1&lt;/a> &lt;a href="https://github.com/benmezger">@benmezger&lt;/a>&lt;/li>
+&lt;li>Add zsh, fish and powershell completion support &lt;a href="https://github.com/gohugoio/hugo/commit/216b00f358dbfa36b34ff515d7f4f88387156db8">216b00f3&lt;/a> &lt;a href="https://github.com/benmezger">@benmezger&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/4296">#4296&lt;/a>&lt;/li>
+&lt;li>Enable NPM tests on Windows &lt;a href="https://github.com/gohugoio/hugo/commit/144943798c2a199ed256ae901a14d3c918055eba">14494379&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8196">#8196&lt;/a>&lt;/li>
+&lt;li>Update to esbuild v0.8.39 &lt;a href="https://github.com/gohugoio/hugo/commit/440fdb0eb96b3230ddefee732b0c1afe52a37228">440fdb0e&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8189">#8189&lt;/a>&lt;/li>
+&lt;li>Trim whitespace in elements written to hugo_stats.json &lt;a href="https://github.com/gohugoio/hugo/commit/b2a48dce58abd3a661aa198af3277ef12f44cce0">b2a48dce&lt;/a> &lt;a href="https://github.com/pmatiash">@pmatiash&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/7958">#7958&lt;/a>&lt;/li>
+&lt;li>bump github.com/aws/aws-sdk-go from 1.35.0 to 1.36.33 &lt;a href="https://github.com/gohugoio/hugo/commit/2f9dadae4072960bbaec3656347e20eec238288c">2f9dadae&lt;/a> &lt;a href="https://github.com/apps/dependabot">@dependabot[bot]&lt;/a>&lt;/li>
+&lt;li>Remove mention of a file size limit for readFile &lt;a href="https://github.com/gohugoio/hugo/commit/ed3071b753c8dec83a2c054624e49b204553ecd3">ed3071b7&lt;/a> &lt;a href="https://github.com/avdva">@avdva&lt;/a>&lt;/li>
+&lt;li>Add Inject config option &lt;a href="https://github.com/gohugoio/hugo/commit/32b86076ee1c0833b538b84e1cc9e6d79babecf2">32b86076&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8164">#8164&lt;/a>&lt;/li>
+&lt;li>Add Shims option &lt;a href="https://github.com/gohugoio/hugo/commit/e19a046c4be9b0654884259b9df94f41561e4fc3">e19a046c&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8165">#8165&lt;/a>&lt;/li>
+&lt;li>bump github.com/spf13/afero from 1.4.1 to 1.5.1 &lt;a href="https://github.com/gohugoio/hugo/commit/07ad283f686904e5835f621d73ed342ba2a48eb3">07ad283f&lt;/a> &lt;a href="https://github.com/eclipseo">@eclipseo&lt;/a>&lt;/li>
+&lt;li>Add external source map support to js.Build and Babel &lt;a href="https://github.com/gohugoio/hugo/commit/2c8b5d9165011c4b24b494e661ae60dfc7bb7d1b">2c8b5d91&lt;/a> &lt;a href="https://github.com/richtera">@richtera&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8132">#8132&lt;/a>&lt;/li>
+&lt;li>Run go mod tidy &lt;a href="https://github.com/gohugoio/hugo/commit/4d2b6fc4c0e714f3f1ed345d6d75ed1662948791">4d2b6fc4&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Update go-org to v1.4.0 &lt;a href="https://github.com/gohugoio/hugo/commit/212e5e554284bc9368e52a512ed09be5a0224d3e">212e5e55&lt;/a> &lt;a href="https://github.com/niklasfasching">@niklasfasching&lt;/a>&lt;/li>
+&lt;li>Adjust log level &lt;a href="https://github.com/gohugoio/hugo/commit/4fdec67b1155ae1cdf051582d9ab387286b71a07">4fdec67b&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Add temporary patch to fix template data race &lt;a href="https://github.com/gohugoio/hugo/commit/9650e568418a316e71ad94d7e27caf544a4a2d0d">9650e568&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/7293">#7293&lt;/a>&lt;/li>
+&lt;li>Fix race condition in text template baseof &lt;a href="https://github.com/gohugoio/hugo/commit/241b7483ea954653512d4895ad6bacf79ee26ddc">241b7483&lt;/a> &lt;a href="https://github.com/moorereason">@moorereason&lt;/a>&lt;/li>
+&lt;li>Fix metrics hint tracking &lt;a href="https://github.com/gohugoio/hugo/commit/0004a733c85cee991a8a170e93cd69c326cc8f2f">0004a733&lt;/a> &lt;a href="https://github.com/moorereason">@moorereason&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8125">#8125&lt;/a>&lt;/li>
+&lt;li>Fix potential path issue on Windows &lt;a href="https://github.com/gohugoio/hugo/commit/b60e9279ab95030828eb4f822be96250284c4d8d">b60e9279&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
+&lt;li>Fix some humanize issues &lt;a href="https://github.com/gohugoio/hugo/commit/bf55afd71f2fdb47272ebf1188c9cc87df47b233">bf55afd7&lt;/a> &lt;a href="https://github.com/susiwen8">@susiwen8&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/7912">#7912&lt;/a>&lt;/li>
+&lt;li>Fix handling of legacy attribute config &lt;a href="https://github.com/gohugoio/hugo/commit/e6dd312812c7c711986af2d60f2999d116b82ea0">e6dd3128&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/7548">#7548&lt;/a>&lt;/li>
+&lt;li>Support translation files with suffix *.yml &lt;a href="https://github.com/gohugoio/hugo/commit/92c6c40419bdc13b8bb422a212d1d79240356651">92c6c404&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8212">#8212&lt;/a>&lt;/li>
+&lt;li>Fix nilpointer in js.Build error handling &lt;a href="https://github.com/gohugoio/hugo/commit/a1fe552fc9e622a15010a94281f604eb85bebd84">a1fe552f&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/8162">#8162&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Showcase: Godot Tutorials</title><link>https://gohugo.io/showcase/godot-tutorials/</link><pubDate>Thu, 07 Jan 2021 00:00:00 +0000</pubDate><guid>https://gohugo.io/showcase/godot-tutorials/</guid><description>
 &lt;img src="https://gohugo.io/showcase/godot-tutorials/featured_hu9debe7d7e6d1a72f19d3b8209a030483_72068_640x0_resize_catmullrom_2.png" width="640" height="372"/>
 &lt;p>&lt;a href="https://godottutorials.com">Godot Tutorials&lt;/a> started as a way to teach beginners game programming and game development.
 As I created videos, I ran into a problem; if I made a mistake with a Youtube video, it was difficult to correct errors.&lt;/p>
@@ -9423,12 +9820,51 @@ which has received &lt;strong>11 contributions by 6 contributors&lt;/strong>. A 
 &lt;h2 id="notes">Notes &lt;a class="header-link" href="#notes">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
 &lt;p>We have added a &lt;code>force&lt;/code> flag to the &lt;a href="https://gohugo.io/getting-started/configuration/#configure-server">server redirects&lt;/a> configuration, configuring whether to override any existing content in the path or not. This is inline with how &lt;a href="https://docs.netlify.com/routing/redirects/#syntax-for-the-netlify-configuration-file">Netlify&lt;/a> does it.&lt;/p>
 &lt;p>This is set to default &lt;code>false&lt;/code>. If you want the old behaviour you need to add this flag to your configuration:&lt;/p>
+&lt;div class="code relative" id="config">
+&lt;div class="code-nav flex flex-nowrap items-stretch">&lt;div class="san-serif f6 dib lh-solid pl2 pv2 mr2">config.&lt;/div>
+&lt;button data-toggle-tab="yaml" class="tab-button active ba san-serif f6 dib lh-solid ph2 pv2">yaml&lt;/button>&amp;nbsp;
+&lt;button data-toggle-tab="toml" class="tab-button ba san-serif f6 dib lh-solid ph2 pv2">toml&lt;/button>&amp;nbsp;
+&lt;button data-toggle-tab="json" class="tab-button ba san-serif f6 dib lh-solid ph2 pv2">json&lt;/button>&amp;nbsp;
+&lt;/div>
+&lt;div class="tab-content">
+&lt;div data-pane="yaml" class="code-copy-content nt3 tab-pane active">
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">redirects&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>- &lt;span class="nt">force&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">from&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/myspa/**&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">status&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">200&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">to&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/myspa/&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/div>
+&lt;button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+&lt;/button>
+&lt;div data-pane="toml" class="code-copy-content nt3 tab-pane ">
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="p">[[&lt;/span>&lt;span class="nx">redirects&lt;/span>&lt;span class="p">]]&lt;/span>
-&lt;span class="nx">from&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;/myspa/**&amp;#34;&lt;/span>
-&lt;span class="nx">to&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;/myspa/&amp;#34;&lt;/span>
-&lt;span class="nx">status&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="mi">200&lt;/span>
 &lt;span class="nx">force&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">true&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="enhancements">Enhancements &lt;a class="header-link" href="#enhancements">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
+&lt;span class="nx">from&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;/myspa/**&amp;#34;&lt;/span>
+&lt;span class="nx">status&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="mi">200&lt;/span>
+&lt;span class="nx">to&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;/myspa/&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>
+&lt;/div>
+&lt;button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+&lt;/button>
+&lt;div data-pane="json" class="code-copy-content nt3 tab-pane ">
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;redirects&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;force&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;from&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;/myspa/**&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;status&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">200&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;to&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;/myspa/&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>
+&lt;/div>
+&lt;button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;h2 id="enhancements">Enhancements &lt;a class="header-link" href="#enhancements">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
 &lt;h3 id="templates">Templates &lt;a class="header-link" href="#templates">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
 &lt;ul>
 &lt;li>Add Do Not Track (dnt) option to Vimeo shortcode &lt;a href="https://github.com/gohugoio/hugo/commit/edc5c4741caaee36ba4d42b5947c195a3e02e6aa">edc5c474&lt;/a> &lt;a href="https://github.com/joshgerdes">@joshgerdes&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/7700">#7700&lt;/a>&lt;/li>
@@ -10059,16 +10495,65 @@ which has received &lt;strong>3 contributions by 3 contributors&lt;/strong>.&lt;
 &lt;img src="https://gohugo.io/news/0.67.0-relnotes/hugo-67-poster-featured_hub9adb3c2f94f651d39a760315e4e42f9_79436_640x0_resize_catmullrom_2.png" width="640" height="320"/>
 &lt;p>The two main items in Hugo 0.67.0 is custom HTTP header support in &lt;code>hugo server&lt;/code> and include/exclude filters for &lt;a href="https://gohugo.io/hosting-and-deployment/hugo-deploy/#readout">Hugo Deploy&lt;/a>.&lt;/p>
 &lt;p>Being able to &lt;a href="https://gohugo.io/getting-started/configuration/#configure-server">configure HTTP headers&lt;/a> in your development server means that you can now verify how your site behaves with the intended Content Security Policy settings etc., e.g.:&lt;/p>
+&lt;div class="code relative" id="config">
+&lt;div class="code-nav flex flex-nowrap items-stretch">&lt;div class="san-serif f6 dib lh-solid pl2 pv2 mr2">config.&lt;/div>
+&lt;button data-toggle-tab="yaml" class="tab-button active ba san-serif f6 dib lh-solid ph2 pv2">yaml&lt;/button>&amp;nbsp;
+&lt;button data-toggle-tab="toml" class="tab-button ba san-serif f6 dib lh-solid ph2 pv2">toml&lt;/button>&amp;nbsp;
+&lt;button data-toggle-tab="json" class="tab-button ba san-serif f6 dib lh-solid ph2 pv2">json&lt;/button>&amp;nbsp;
+&lt;/div>
+&lt;div class="tab-content">
+&lt;div data-pane="yaml" class="code-copy-content nt3 tab-pane active">
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">server&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">headers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">for&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/**.html&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">values&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">Content-Security-Policy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">script-src localhost:1313&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">Referrer-Policy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">strict-origin-when-cross-origin&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">X-Content-Type-Options&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nosniff&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">X-Frame-Options&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">DENY&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">X-XSS-Protection&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="l">; mode=block&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/div>
+&lt;button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+&lt;/button>
+&lt;div data-pane="toml" class="code-copy-content nt3 tab-pane ">
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="p">[&lt;/span>&lt;span class="nx">server&lt;/span>&lt;span class="p">]&lt;/span>
 &lt;span class="p">[[&lt;/span>&lt;span class="nx">server&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">headers&lt;/span>&lt;span class="p">]]&lt;/span>
 &lt;span class="nx">for&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;/**.html&amp;#34;&lt;/span>
 &lt;span class="p">[&lt;/span>&lt;span class="nx">server&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">headers&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">values&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">Content&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">Security&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">Policy&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;script-src localhost:1313&amp;#34;&lt;/span>
+&lt;span class="nx">Referrer&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">Policy&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;strict-origin-when-cross-origin&amp;#34;&lt;/span>
+&lt;span class="nx">X&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">Content&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">Type&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">Options&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;nosniff&amp;#34;&lt;/span>
 &lt;span class="nx">X&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">Frame&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">Options&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;DENY&amp;#34;&lt;/span>
 &lt;span class="nx">X&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">XSS&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">Protection&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;1; mode=block&amp;#34;&lt;/span>
-&lt;span class="nx">X&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">Content&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">Type&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">Options&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;nosniff&amp;#34;&lt;/span>
-&lt;span class="nx">Referrer&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">Policy&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;strict-origin-when-cross-origin&amp;#34;&lt;/span>
-&lt;span class="nx">Content&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">Security&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">Policy&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;script-src localhost:1313&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Note:&lt;/strong> This release also changes how raw HTML files inside /content is processed to be in line with the documentation. See &lt;a href="https://github.com/gohugoio/hugo/issues/7030">#7030&lt;/a>.&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>
+&lt;/div>
+&lt;button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+&lt;/button>
+&lt;div data-pane="json" class="code-copy-content nt3 tab-pane ">
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;server&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;headers&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;for&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;/**.html&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;values&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;Content-Security-Policy&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;script-src localhost:1313&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;Referrer-Policy&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;strict-origin-when-cross-origin&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;X-Content-Type-Options&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;nosniff&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;X-Frame-Options&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;DENY&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;X-XSS-Protection&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;1; mode=block&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>
+&lt;/div>
+&lt;button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;p>&lt;strong>Note:&lt;/strong> This release also changes how raw HTML files inside /content is processed to be in line with the documentation. See &lt;a href="https://github.com/gohugoio/hugo/issues/7030">#7030&lt;/a>.&lt;/p>
 &lt;p>This release represents &lt;strong>7 contributions by 4 contributors&lt;/strong> to the main Hugo code base.&lt;a href="https://github.com/bep">@bep&lt;/a> leads the Hugo development with a significant amount of contributions, but also a big shoutout to &lt;a href="https://github.com/satotake">@satotake&lt;/a>, &lt;a href="https://github.com/sams96">@sams96&lt;/a>, and &lt;a href="https://github.com/davidejones">@davidejones&lt;/a> for their ongoing contributions.
 And a big thanks to &lt;a href="https://github.com/digitalcraftsman">@digitalcraftsman&lt;/a> and &lt;a href="https://github.com/onedrawingperday">@onedrawingperday&lt;/a> for their relentless work on keeping the themes site in pristine condition and to &lt;a href="https://github.com/davidsneighbour">@davidsneighbour&lt;/a> and &lt;a href="https://github.com/kaushalmodi">@kaushalmodi&lt;/a> for all the great work on the documentation site.&lt;/p>
 &lt;p>Many have also been busy writing and fixing the documentation in &lt;a href="https://github.com/gohugoio/hugoDocs">hugoDocs&lt;/a>,
@@ -10098,10 +10583,41 @@ which has received &lt;strong>5 contributions by 5 contributors&lt;/strong>. A s
 &lt;li>Fix handling of HTML files without front matter &lt;a href="https://github.com/gohugoio/hugo/commit/ffcb4aeb8e392a80da7cad0f1e03a4102efb24ec">ffcb4aeb&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/7030">#7030&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/7028">#7028&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/6789">#6789&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>News: Hugo 0.66.0: PostCSS Edition</title><link>https://gohugo.io/news/0.66.0-relnotes/</link><pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate><guid>https://gohugo.io/news/0.66.0-relnotes/</guid><description>
 &lt;img src="https://gohugo.io/news/0.66.0-relnotes/hugo-66-poster-featured_hu4d3a62a6d2ad42dd03e2a3723d4914a5_75588_640x0_resize_catmullrom_2.png" width="640" height="320"/>
-&lt;p>This release adds &lt;a href="https://gohugo.io/hugo-pipes/postcss/#options">inline &lt;code>@import&lt;/code>&lt;/a> support to &lt;code>resources.PostCSS&lt;/code>, with imports relative to Hugo&amp;rsquo;s virtual, composable file system. Another useful addition is the new &lt;code>build&lt;/code> &lt;a href="https://gohugo.io/getting-started/configuration/#configure-build">configuration section&lt;/a>. As an example in &lt;code>config.toml&lt;/code>:&lt;/p>
+&lt;p>This release adds &lt;a href="https://gohugo.io/hugo-pipes/postcss/#options">inline &lt;code>@import&lt;/code>&lt;/a> support to &lt;code>resources.PostCSS&lt;/code>, with imports relative to Hugo&amp;rsquo;s virtual, composable file system. Another useful addition is the new &lt;code>build&lt;/code> &lt;a href="https://gohugo.io/getting-started/configuration/#configure-build">configuration section&lt;/a>. As an example:&lt;/p>
+&lt;div class="code relative" id="config">
+&lt;div class="code-nav flex flex-nowrap items-stretch">&lt;div class="san-serif f6 dib lh-solid pl2 pv2 mr2">config.&lt;/div>
+&lt;button data-toggle-tab="yaml" class="tab-button active ba san-serif f6 dib lh-solid ph2 pv2">yaml&lt;/button>&amp;nbsp;
+&lt;button data-toggle-tab="toml" class="tab-button ba san-serif f6 dib lh-solid ph2 pv2">toml&lt;/button>&amp;nbsp;
+&lt;button data-toggle-tab="json" class="tab-button ba san-serif f6 dib lh-solid ph2 pv2">json&lt;/button>&amp;nbsp;
+&lt;/div>
+&lt;div class="tab-content">
+&lt;div data-pane="yaml" class="code-copy-content nt3 tab-pane active">
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">build&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">useResourceCacheWhen&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;/div>
+&lt;button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+&lt;/button>
+&lt;div data-pane="toml" class="code-copy-content nt3 tab-pane ">
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="p">[&lt;/span>&lt;span class="nx">build&lt;/span>&lt;span class="p">]&lt;/span>
 &lt;span class="nx">useResourceCacheWhen&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;always&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>The above will tell Hugo to &lt;em>always&lt;/em> use the cached build resources inside &lt;code>resources/_gen&lt;/code> for the build steps requiring a non-standard dependency (PostCSS and SCSS/SASS). Valid values are &lt;code>never&lt;/code>, &lt;code>always&lt;/code> and &lt;code>fallback&lt;/code> (default).&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>
+&lt;/div>
+&lt;button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+&lt;/button>
+&lt;div data-pane="json" class="code-copy-content nt3 tab-pane ">
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;build&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;useResourceCacheWhen&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;always&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>
+&lt;/div>
+&lt;button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;p>The above will tell Hugo to &lt;em>always&lt;/em> use the cached build resources inside &lt;code>resources/_gen&lt;/code> for the build steps requiring a non-standard dependency (PostCSS and SCSS/SASS). Valid values are &lt;code>never&lt;/code>, &lt;code>always&lt;/code> and &lt;code>fallback&lt;/code> (default).&lt;/p>
 &lt;p>This release represents &lt;strong>27 contributions by 8 contributors&lt;/strong> to the main Hugo code base.&lt;a href="https://github.com/bep">@bep&lt;/a> leads the Hugo development with a significant amount of contributions, but also a big shoutout to &lt;a href="https://github.com/anthonyfok">@anthonyfok&lt;/a>, &lt;a href="https://github.com/carlmjohnson">@carlmjohnson&lt;/a>, and &lt;a href="https://github.com/sams96">@sams96&lt;/a> for their ongoing contributions.
 And a big thanks to &lt;a href="https://github.com/digitalcraftsman">@digitalcraftsman&lt;/a> and &lt;a href="https://github.com/onedrawingperday">@onedrawingperday&lt;/a> for their relentless work on keeping the themes site in pristine condition and to &lt;a href="https://github.com/davidsneighbour">@davidsneighbour&lt;/a> and &lt;a href="https://github.com/kaushalmodi">@kaushalmodi&lt;/a> for all the great work on the documentation site.&lt;/p>
 &lt;p>Many have also been busy writing and fixing the documentation in &lt;a href="https://github.com/gohugoio/hugoDocs">hugoDocs&lt;/a>,
@@ -10162,7 +10678,7 @@ which has received &lt;strong>8 contributions by 5 contributors&lt;/strong>. A s
 &lt;p>Not only that, this had to work with one developer crunched for time who spends most of his time working on two separate apps across 3 desktop platforms — someone whose main job is very far from building static websites. We only had scraps of time to design and build this Hugo site, make it performant and scalable, and Hugo did a phenomenal job delivering on that promise.&lt;/p>
 &lt;p>The last piece is, funnily enough, moving our blog to Hugo, which it is not as of now. This was an inherited mistake we are currently rectifying. Soon, our entire web footprint will be living in Hugo.&lt;/p>
 &lt;h3 id="structure">Structure &lt;a class="header-link" href="#structure">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
-&lt;p>Our website is built in such a way that there is a separate Vue.js instance for each of the contexts since we are no using JS-based single-page navigation. We use Hugo for navigation and to build most pages. For the pages we need to make interactive, we use Vue.js to build individual, self-contained single-page Javascript apps. One such example is our sign-up flow at &lt;a href="https://aether.app">aether.app&lt;/a>, an individual Vue app living within a Hugo page, with its own JS-based navigation.&lt;/p>
+&lt;p>Our website is built in such a way that there is a separate Vue.js instance for each of the contexts since we are not using JS-based single-page navigation. We use Hugo for navigation and to build most pages. For the pages we need to make interactive, we use Vue.js to build individual, self-contained single-page Javascript apps. One such example is our sign-up flow at &lt;a href="https://aether.app">aether.app&lt;/a>, an individual Vue app living within a Hugo page, with its own JS-based navigation.&lt;/p>
 &lt;p>This is a relatively complex setup, and somewhat out of the ordinary. Yet, even with this custom setup, using Hugo was painless.&lt;/p>
 &lt;h3 id="tools">Tools &lt;a class="header-link" href="#tools">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
 &lt;p>&lt;strong>CMS&lt;/strong>: Hugo&lt;/p>
@@ -10335,136 +10851,4 @@ which has received &lt;strong>6 contributions by 4 contributors&lt;/strong>. A s
 &lt;li>And now finally fix the 404 templates &lt;a href="https://github.com/gohugoio/hugo/commit/74b6c4e5ff5ee16f0e6b352a26c1e58b90a25dc6">74b6c4e5&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6795">#6795&lt;/a>&lt;/li>
 &lt;li>Fix 404 with base template regression &lt;a href="https://github.com/gohugoio/hugo/commit/8df5d76e708238563185bac84809b34a4d395734">8df5d76e&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6795">#6795&lt;/a>&lt;/li>
 &lt;li>Fix baseof with regular define regression &lt;a href="https://github.com/gohugoio/hugo/commit/f441f675126ef1123d9f94429872dd683b40e011">f441f675&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6790">#6790&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>News: Hugo 0.63.2: A couple of Bug Fixes</title><link>https://gohugo.io/news/0.63.2-relnotes/</link><pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate><guid>https://gohugo.io/news/0.63.2-relnotes/</guid><description>
-&lt;p>This is a bug-fix release with a couple of important fixes.&lt;/p>
-&lt;ul>
-&lt;li>And now finally fix the 404 templates &lt;a href="https://github.com/gohugoio/hugo/commit/74b6c4e5ff5ee16f0e6b352a26c1e58b90a25dc6">74b6c4e5&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6795">#6795&lt;/a>&lt;/li>
-&lt;li>Fix 404 with base template regression &lt;a href="https://github.com/gohugoio/hugo/commit/8df5d76e708238563185bac84809b34a4d395734">8df5d76e&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6795">#6795&lt;/a>&lt;/li>
-&lt;li>Revert to .Type = &amp;ldquo;page&amp;rdquo; when empty &lt;a href="https://github.com/gohugoio/hugo/issues/6805">#6805&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>News: Hugo 0.63.1: A couple of Bug Fixes</title><link>https://gohugo.io/news/0.63.1-relnotes/</link><pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate><guid>https://gohugo.io/news/0.63.1-relnotes/</guid><description>
-&lt;p>This is a bug-fix release with a couple of important fixes.&lt;/p>
-&lt;ul>
-&lt;li>deps: Make the build flags shared between sites &lt;a href="https://github.com/gohugoio/hugo/commit/0df7bd62df460a49544845d5332f33b2020b48a1">0df7bd62&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6789">#6789&lt;/a>&lt;/li>
-&lt;li>Fix baseof with regular define regression &lt;a href="https://github.com/gohugoio/hugo/commit/f441f675126ef1123d9f94429872dd683b40e011">f441f675&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6790">#6790&lt;/a>&lt;/li>
-&lt;li>Revert to minify &lt;a href="https://github.com/gohugoio/hugo/commit/7ed22e9fb6a5b74c52ae6054b843b8c64e83f4b6">v2.61&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>News: Improved base templates, and faster!</title><link>https://gohugo.io/news/0.63.0-relnotes/</link><pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate><guid>https://gohugo.io/news/0.63.0-relnotes/</guid><description>
-&lt;img src="https://gohugo.io/news/0.63.0-relnotes/featured-063_hu5954e4b26e8962f5849de8f2cf549c9d_212246_640x0_resize_catmullrom_2.png" width="640" height="320"/>
-&lt;p>&lt;strong>Note:&lt;/strong> There is already a &lt;a href="https://gohugo.io/news/0.63.1-relnotes/">patch release&lt;/a> with some fixes.&lt;/p>
-&lt;p>Hugo &lt;code>0.63&lt;/code> is, in general, &lt;strong>considerably faster and more memory effective&lt;/strong> (see the site-building benchmarks below comparing it to &lt;code>v0.62&lt;/code>). Not that we are particularly concerned about Hugo&amp;rsquo;s build speed. We leave that to others. But we would hate if it got slower, so we have a comprehensive benchmark suite. And when we needed to simplify the template handling code to solve a concurrency issue, it also became more effective. And as a bonus, we also finally got the &lt;a href="https://gohugo.io/templates/base/#base-template-lookup-order">base template lookup order&lt;/a> that you really, really wanted!&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">name old time/op new time/op delta
-SiteNew/Bundle_with_image-16 13.2ms ± 2% 10.7ms ± 0% -19.13% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Bundle_with_JSON_file-16 13.1ms ± 0% 10.8ms ± 0% -17.50% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Tags_and_categories-16 47.7ms ± 1% 43.7ms ± 2% -8.43% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Canonify_URLs-16 52.3ms ± 6% 49.5ms ± 7% ~ &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.200 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Deep_content_tree-16 77.7ms ± 0% 71.6ms ± 1% -7.84% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Many_HTML_templates-16 44.0ms ± 2% 37.5ms ± 1% -14.79% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Page_collections-16 58.4ms ± 1% 52.5ms ± 1% -10.09% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-name old alloc/op new alloc/op delta
-SiteNew/Bundle_with_image-16 3.81MB ± 0% 2.22MB ± 0% -41.57% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Bundle_with_JSON_file-16 3.60MB ± 0% 2.01MB ± 0% -44.09% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Tags_and_categories-16 19.3MB ± 1% 14.2MB ± 0% -26.52% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Canonify_URLs-16 70.7MB ± 0% 69.0MB ± 0% -2.30% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Deep_content_tree-16 37.0MB ± 0% 31.2MB ± 0% -15.78% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Many_HTML_templates-16 17.5MB ± 0% 10.6MB ± 0% -39.68% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Page_collections-16 25.8MB ± 0% 21.2MB ± 0% -17.80% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-name old allocs/op new allocs/op delta
-SiteNew/Bundle_with_image-16 52.3k ± 0% 26.1k ± 0% -50.08% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Bundle_with_JSON_file-16 52.3k ± 0% 26.1k ± 0% -50.06% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Tags_and_categories-16 337k ± 1% 272k ± 0% -19.20% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Canonify_URLs-16 422k ± 0% 395k ± 0% -6.33% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Deep_content_tree-16 400k ± 0% 314k ± 0% -21.41% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Many_HTML_templates-16 247k ± 0% 143k ± 0% -41.84% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-SiteNew/Page_collections-16 282k ± 0% 207k ± 0% -26.31% &lt;span class="o">(&lt;/span>&lt;span class="nv">p&lt;/span>&lt;span class="o">=&lt;/span>0.029 &lt;span class="nv">n&lt;/span>&lt;span class="o">=&lt;/span>4+4&lt;span class="o">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>This release represents &lt;strong>35 contributions by 9 contributors&lt;/strong> to the main Hugo code base. &lt;a href="https://github.com/bep">@bep&lt;/a> leads the Hugo development with a significant amount of contributions, but also a big shoutout to &lt;a href="https://github.com/hcwong">@hcwong&lt;/a>, &lt;a href="https://github.com/flother">@flother&lt;/a>, and &lt;a href="https://github.com/RemcodM">@RemcodM&lt;/a> for their ongoing contributions.&lt;/p>
-&lt;p>And a big thanks to &lt;a href="https://github.com/digitalcraftsman">@digitalcraftsman&lt;/a> and &lt;a href="https://github.com/onedrawingperday">@onedrawingperday&lt;/a> for their relentless work on keeping the themes site in pristine condition and to &lt;a href="https://github.com/davidsneighbour">@davidsneighbour&lt;/a> and &lt;a href="https://github.com/kaushalmodi">@kaushalmodi&lt;/a> for all the great work on the documentation site.&lt;/p>
-&lt;p>Many have also been busy writing and fixing the documentation in &lt;a href="https://github.com/gohugoio/hugoDocs">hugoDocs&lt;/a>,
-which has received &lt;strong>13 contributions by 10 contributors&lt;/strong>. A special thanks to &lt;a href="https://github.com/bep">@bep&lt;/a>, &lt;a href="https://github.com/jeffscottlevine">@jeffscottlevine&lt;/a>, &lt;a href="https://github.com/davidsneighbour">@davidsneighbour&lt;/a>, and &lt;a href="https://github.com/nicfits">@nicfits&lt;/a> for their work on the documentation site.&lt;/p>
-&lt;p>Hugo now has:&lt;/p>
-&lt;ul>
-&lt;li>41091+ &lt;a href="https://github.com/gohugoio/hugo/stargazers">stars&lt;/a>&lt;/li>
-&lt;li>440+ &lt;a href="https://github.com/gohugoio/hugo/graphs/contributors">contributors&lt;/a>&lt;/li>
-&lt;li>286+ &lt;a href="http://themes.gohugo.io/">themes&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="notes">Notes &lt;a class="header-link" href="#notes">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
-&lt;ul>
-&lt;li>&lt;code>.Type&lt;/code> on-page now returns an empty string if not set in the front matter or if &lt;code>.Section&lt;/code> returns empty. See &lt;a href="https://github.com/gohugoio/hugo/issues/6760">#6760&lt;/a>.&lt;/li>
-&lt;li>Baseof template (e.g. &lt;code>baseof.html&lt;/code>) lookup order is completely revised/expanded. See &lt;a href="https://gohugo.io/templates/base/#base-template-lookup-order">base template lookup order&lt;/a>. We now do template resolution at execution time following the same rules as the template it applies to (e.g. &lt;code>_default/single.html&lt;/code>). This is an obvious improvement and your site should work as before.&lt;/li>
-&lt;li>Shortcode params now supports params with raw string literals (strings surrounded with ``) that supports newlines.&lt;/li>
-&lt;li>Note: In a base template (e.g. &lt;code>baseof.html&lt;/code>), the first template block must be a &lt;code>define&lt;/code>.&lt;/li>
-&lt;/ul>
-&lt;h2 id="enhancements">Enhancements &lt;a class="header-link" href="#enhancements">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
-&lt;h3 id="templates">Templates &lt;a class="header-link" href="#templates">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
-&lt;ul>
-&lt;li>Rework template management to get rid of concurrency issues &lt;a href="https://github.com/gohugoio/hugo/commit/c6d650c8c8b22fdc7ddedc1e42a3ca698e1390d6">c6d650c8&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6716">#6716&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/6760">#6760&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/6768">#6768&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/6778">#6778&lt;/a>&lt;/li>
-&lt;li>Put Go&amp;rsquo;s internal template funcs in Hugo&amp;rsquo;s map &lt;a href="https://github.com/gohugoio/hugo/commit/1cf235412f98b42aefe368e99a0e9e95bae6eef7">1cf23541&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6717">#6717&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="output">Output &lt;a class="header-link" href="#output">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
-&lt;ul>
-&lt;li>Add base template lookup variant to docs.json &lt;a href="https://github.com/gohugoio/hugo/commit/cafb1d53c0927e2aef8abff1bf9095c90c6f3067">cafb1d53&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="core">Core &lt;a class="header-link" href="#core">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
-&lt;ul>
-&lt;li>Disable a test assertion on ARM &lt;a href="https://github.com/gohugoio/hugo/commit/836c24261f9f175254256fb326d92a3db47e1c75">836c2426&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6655">#6655&lt;/a>&lt;/li>
-&lt;li>Some more benchmark adjustments &lt;a href="https://github.com/gohugoio/hugo/commit/ddd75f212110a3d6643a07301e377415f3d163bd">ddd75f21&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
-&lt;li>Adjust site benchmarks &lt;a href="https://github.com/gohugoio/hugo/commit/4ed6ebef4ca71572a19bb890cb4c026a688b2b5b">4ed6ebef&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
-&lt;li>Add a benchmark with lots of templates &lt;a href="https://github.com/gohugoio/hugo/commit/ea05c0e8456e8dec71ffd796148355b0d8b36eb0">ea05c0e8&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="other">Other &lt;a class="header-link" href="#other">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
-&lt;ul>
-&lt;li>Regen docs helper &lt;a href="https://github.com/gohugoio/hugo/commit/4f466db666dded1b6c6d1e6926e170f22164433a">4f466db6&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
-&lt;li>Allow multiple arguments in ne/ge/gt/le/lt functions Treat op arg1 arg2 arg3 &amp;hellip; as (arg1 op arg2) &amp;amp;&amp;amp; (arg1 op arg3) and so on for ne/ge/gt/le/lt. &lt;a href="https://github.com/gohugoio/hugo/commit/0c251be66bf3ad4abafbc47583e394ca4e6ffcf1">0c251be6&lt;/a> &lt;a href="https://github.com/le0tan">@le0tan&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6619">#6619&lt;/a>&lt;/li>
-&lt;li>Update go-org &lt;a href="https://github.com/gohugoio/hugo/commit/8585b388d27abde1ab6b6c63ad6addf4066ec8dd">8585b388&lt;/a> &lt;a href="https://github.com/niklasfasching">@niklasfasching&lt;/a>&lt;/li>
-&lt;li>Add support for newline characters in raw string shortcode &lt;a href="https://github.com/gohugoio/hugo/commit/21ca2e9ce4255bfad2bb0576aff087a240acf70a">21ca2e9c&lt;/a> &lt;a href="https://github.com/hcwong">@hcwong&lt;/a>&lt;/li>
-&lt;li>Update github.com/alecthomas/chroma &lt;a href="https://github.com/gohugoio/hugo/commit/3efa1d81219a6e7b41c9676e9cab446741f69055">3efa1d81&lt;/a> &lt;a href="https://github.com/ghislainbourgeois">@ghislainbourgeois&lt;/a>&lt;/li>
-&lt;li>Update minify to v2.7.2 &lt;a href="https://github.com/gohugoio/hugo/commit/65ec8fe827efef5a14c4e1bc440a6df97d2f20a2">65ec8fe8&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6756">#6756&lt;/a>&lt;/li>
-&lt;li>Update Goldmark to v1.1.21 &lt;a href="https://github.com/gohugoio/hugo/commit/d3e8ab2e39dcc27853b163079f4a82364286fe82">d3e8ab2e&lt;/a> &lt;a href="https://github.com/flother">@flother&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6571">#6571&lt;/a>&lt;/li>
-&lt;li>Allow raw string literals in shortcode params &lt;a href="https://github.com/gohugoio/hugo/commit/da814556567eab9ba0ac5fef5314c3ad5ee50ccd">da814556&lt;/a> &lt;a href="https://github.com/hcwong">@hcwong&lt;/a>&lt;/li>
-&lt;li>Update github.com/gohugoio/testmodBuilder &lt;a href="https://github.com/gohugoio/hugo/commit/0c0bb372858b5de58c15ccd300144e0bc205ffad">0c0bb372&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
-&lt;li>Update direct dependencies &lt;a href="https://github.com/gohugoio/hugo/commit/94cfdf6befd657e46c9458b23f17d851cd2f7037">94cfdf6b&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6719">#6719&lt;/a>&lt;/li>
-&lt;li>Update to new CSS config &lt;a href="https://github.com/gohugoio/hugo/commit/451380177868e48127a33362aa8d553b90516fb5">45138017&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6719">#6719&lt;/a>&lt;/li>
-&lt;li>Update to Minify v2.7.0 &lt;a href="https://github.com/gohugoio/hugo/commit/56354a63bb73271224a9300a4742dc1a2f551202">56354a63&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
-&lt;li>Add support for freebsd/arm64 &lt;a href="https://github.com/gohugoio/hugo/commit/aead8108b80d77e23c68a47fd8d86464310130be">aead8108&lt;/a> &lt;a href="https://github.com/dmgk">@dmgk&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6719">#6719&lt;/a>&lt;/li>
-&lt;li>Update releasenotes_writer.go &lt;a href="https://github.com/gohugoio/hugo/commit/df6e9efd8f345707932231ea23dc8713afb5b026">df6e9efd&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
-&lt;li>Adjust auto ID space handling &lt;a href="https://github.com/gohugoio/hugo/commit/9b6e61464b09ffe3423fb8d7c72bddb7a9ed5b98">9b6e6146&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6710">#6710&lt;/a>&lt;/li>
-&lt;li>Document the new autoHeadingIDType setting &lt;a href="https://github.com/gohugoio/hugo/commit/d62ede8e9e5883e7ebb023e49b82f07b45edc1c7">d62ede8e&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6707">#6707&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/6616">#6616&lt;/a>&lt;/li>
-&lt;li>Regenerate docshelper &lt;a href="https://github.com/gohugoio/hugo/commit/81b7e48a55092203aeee8785799e6fed3928760e">81b7e48a&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6707">#6707&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/6616">#6616&lt;/a>&lt;/li>
-&lt;li>Add an optional Blackfriday auto ID strategy &lt;a href="https://github.com/gohugoio/hugo/commit/16e7c1120346bd853cf6510ffac8e94824bf2c7f">16e7c112&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6707">#6707&lt;/a>&lt;/li>
-&lt;li>Make the autoID type config a string &lt;a href="https://github.com/gohugoio/hugo/commit/8f071fc159ce9a0fc0ea14a73bde8f299bedd109">8f071fc1&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6707">#6707&lt;/a>&lt;/li>
-&lt;li>markup/goldmark: Simplify code &lt;a href="https://github.com/gohugoio/hugo/commit/5ee1f0876f3ec8b79d6305298185dc821ead2d28">5ee1f087&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
-&lt;li>Make auto IDs GitHub compatible &lt;a href="https://github.com/gohugoio/hugo/commit/a82d2700fcc772aada15d65b8f76913ca23f7404">a82d2700&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6616">#6616&lt;/a>&lt;/li>
-&lt;li>Support files in content mounts &lt;a href="https://github.com/gohugoio/hugo/commit/ff6253bc7cf745e9c0127ddc9006da3c2c00c738">ff6253bc&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6684">#6684&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/6696">#6696&lt;/a>&lt;/li>
-&lt;li>Update alpine base image in Dockerfile to 3.11 &lt;a href="https://github.com/gohugoio/hugo/commit/aa4ccb8a1e9b8aa17397acf34049a2aa16b0b6cb">aa4ccb8a&lt;/a> &lt;a href="https://github.com/RemcodM">@RemcodM&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="fixes">Fixes &lt;a class="header-link" href="#fixes">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h2>
-&lt;h3 id="templates-1">Templates &lt;a class="header-link" href="#templates-1">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
-&lt;ul>
-&lt;li>Fix eq when &amp;gt; 2 args &lt;a href="https://github.com/gohugoio/hugo/commit/2fefc01606fddb119f368c89fb2dedd452ad6547">2fefc016&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6786">#6786&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="core-1">Core &lt;a class="header-link" href="#core-1">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
-&lt;ul>
-&lt;li>Fix relative .Page.GetPage from bundle &lt;a href="https://github.com/gohugoio/hugo/commit/196a9df585c4744e3280f37c1c24e469fce14b8c">196a9df5&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6705">#6705&lt;/a>&lt;/li>
-&lt;li>Fix inline shortcode regression &lt;a href="https://github.com/gohugoio/hugo/commit/5509954c7e8b0ce8d5ea903b0ab639ea14b69acb">5509954c&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6677">#6677&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="other-1">Other &lt;a class="header-link" href="#other-1">&lt;svg class="fill-current o-60 hover-accent-color-light" height="22px" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">&lt;path d="M0 0h24v24H0z" fill="none"/>&lt;path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>&lt;/svg>&lt;/a>&lt;/h3>
-&lt;ul>
-&lt;li>Fix 0.62.1 server rebuild slowdown regression &lt;a href="https://github.com/gohugoio/hugo/commit/17af79a03e249a731cf5634ffea23ca00774333d">17af79a0&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6784">#6784&lt;/a>&lt;/li>
-&lt;li>Fix blog not building &lt;a href="https://github.com/gohugoio/hugo/commit/d61bee5e0916b5d2b388e66ef85c336312a21a06">d61bee5e&lt;/a> &lt;a href="https://github.com/colonelpopcorn">@colonelpopcorn&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6752">#6752&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>News: Hugo 0.62.2: A couple of Bug Fixes</title><link>https://gohugo.io/news/0.62.2-relnotes/</link><pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate><guid>https://gohugo.io/news/0.62.2-relnotes/</guid><description>
-&lt;p>The main driving force behind these patch releases in the new year has been getting a good story with &lt;a href="https://github.com/bep/portable-hugo-links/">portable links&lt;/a> between GitHub and Hugo, using the new render hooks introduced in &lt;a href="https://gohugo.io/news/0.62.0-relnotes/">Hugo 0.62.0&lt;/a>. And all was mostly well until a Hugo user asked about anchor links. Which is, when you look into it, a slightly sad Markdown story. They have been &lt;a href="https://talk.commonmark.org/t/anchors-in-markdown/247">talking about anchors in Markdown&lt;/a> over at the CommonMark forum for the last six years, but it has come to nothing. The current situation is that some Markdown engines support the &lt;code>{#anchorName}&lt;/code> attribute syntax (Hugo&amp;rsquo;s Goldmark does, GitHub does not) and for those that support auto-generation of IDs, the implementation often varies. And this makes for poor portability.&lt;/p>
-&lt;p>To improve this, Hugo has now reverse-engineered GitHub&amp;rsquo;s implementation and made that the default strategy for generation or header IDs. We understand that this isn&amp;rsquo;t everyone&amp;rsquo;s cup of tea, so you can &lt;a href="https://gohugo.io/getting-started/configuration-markup#goldmark">configure the behaviour&lt;/a> to be one of &lt;code>github&lt;/code>, &lt;code>github-ascii&lt;/code> (some client-libraries have Unicode issues) or &lt;code>blackfriday&lt;/code> (which will match how it behaved before Hugo 0.60).&lt;/p>
-&lt;ul>
-&lt;li>hugolib: Fix relative .Page.GetPage from bundle &lt;a href="https://github.com/gohugoio/hugo/commit/196a9df585c4744e3280f37c1c24e469fce14b8c">196a9df5&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6705">#6705&lt;/a>&lt;/li>
-&lt;li>markup/goldmark: Adjust auto ID space handling &lt;a href="https://github.com/gohugoio/hugo/commit/9b6e61464b09ffe3423fb8d7c72bddb7a9ed5b98">9b6e6146&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6710">#6710&lt;/a>&lt;/li>
-&lt;li>docs: Document the new autoHeadingIDType setting &lt;a href="https://github.com/gohugoio/hugo/commit/d62ede8e9e5883e7ebb023e49b82f07b45edc1c7">d62ede8e&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6707">#6707&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/6616">#6616&lt;/a>&lt;/li>
-&lt;li>docs: Regenerate docshelper &lt;a href="https://github.com/gohugoio/hugo/commit/81b7e48a55092203aeee8785799e6fed3928760e">81b7e48a&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6707">#6707&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/6616">#6616&lt;/a>&lt;/li>
-&lt;li>markup/goldmark: Add an optional Blackfriday auto ID strategy &lt;a href="https://github.com/gohugoio/hugo/commit/16e7c1120346bd853cf6510ffac8e94824bf2c7f">16e7c112&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6707">#6707&lt;/a>&lt;/li>
-&lt;li>markup/goldmark: Make the autoID type config a string &lt;a href="https://github.com/gohugoio/hugo/commit/8f071fc159ce9a0fc0ea14a73bde8f299bedd109">8f071fc1&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6707">#6707&lt;/a>&lt;/li>
-&lt;li>markup/goldmark: Simplify code &lt;a href="https://github.com/gohugoio/hugo/commit/5ee1f0876f3ec8b79d6305298185dc821ead2d28">5ee1f087&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a>&lt;/li>
-&lt;li>markup/goldmark: Make auto IDs GitHub compatible &lt;a href="https://github.com/gohugoio/hugo/commit/a82d2700fcc772aada15d65b8f76913ca23f7404">a82d2700&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6616">#6616&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>News: Hugo 0.62.1: A couple of Bug Fixes</title><link>https://gohugo.io/news/0.62.1-relnotes/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://gohugo.io/news/0.62.1-relnotes/</guid><description>
-&lt;p>This release is mainly motivated by getting &lt;a href="https://github.com/bep/portable-hugo-links">this demo site&lt;/a> up and running. It demonstrates truly portable Markdown links and images, whether browsed on GitHub or deployed as a Hugo site.&lt;/p>
-&lt;ul>
-&lt;li>Support files in content mounts &lt;a href="https://github.com/gohugoio/hugo/commit/ff6253bc7cf745e9c0127ddc9006da3c2c00c738">ff6253bc&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6684">#6684&lt;/a>&lt;a href="https://github.com/gohugoio/hugo/issues/6696">#6696&lt;/a>&lt;/li>
-&lt;li>Update alpine base image in Dockerfile to 3.11 &lt;a href="https://github.com/gohugoio/hugo/commit/aa4ccb8a1e9b8aa17397acf34049a2aa16b0b6cb">aa4ccb8a&lt;/a> &lt;a href="https://github.com/RemcodM">@RemcodM&lt;/a>&lt;/li>
-&lt;li>hugolib: Fix inline shortcode regression &lt;a href="https://github.com/gohugoio/hugo/commit/5509954c7e8b0ce8d5ea903b0ab639ea14b69acb">5509954c&lt;/a> &lt;a href="https://github.com/bep">@bep&lt;/a> &lt;a href="https://github.com/gohugoio/hugo/issues/6677">#6677&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>
